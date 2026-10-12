@@ -28,7 +28,7 @@
   <div class="navlinks">
    <a href="#about">About</a><a href="#lab">Graph</a><a href="#work">Work</a><a href="#experience">Experience</a><a href="#research">Research</a><a href="#contact">Contact</a>
   </div>
-  <a class="navcv" href="https://layalcanoe.github.io/assets/cv/Layal-Canoe-CV.pdf" target="_blank" rel="noopener">CV ↗</a>
+  <a class="navcv" href="Layal_Canoe_CV.pdf" target="_blank" rel="noopener noreferrer">CV ↗</a>
  </div>
 </nav>
 
@@ -51,7 +51,7 @@
   <p class="sub"><strong>AI Intern at Heroz</strong>, working across recommendation systems, knowledge graphs, and intelligent AI systems. <strong>Computer Science (AI)</strong> at Effat University, graduating 2026.</p>
   <div class="actions">
    <a class="btn primary" href="#lab">Explore my work</a>
-   <a class="btn" href="https://layalcanoe.github.io/assets/cv/Layal-Canoe-CV.pdf" target="_blank" rel="noopener">View CV</a>
+   <a class="btn" href="Layal_Canoe_CV.pdf" target="_blank" rel="noopener noreferrer">View CV</a>
    <span class="email"><span id="emailText">layalcanoe12@gmail.com</span><button class="copy" id="copyBtn" type="button">Copy</button></span>
   </div>
   <div class="stats">
@@ -82,13 +82,13 @@
  <div class="lab-head">
   <div class="eyebrow">MATCH (layal)-[*]-(work) RETURN *</div>
   <h2>Everything I've built, as a graph</h2>
-  <p>Each project, paper, role, and skill is a node. Run a query, trace how two pieces of work connect, or pick the role you're hiring for and see what matches.</p>
+  <p>Each project, paper, role, and skill is a node. Explore my work, trace how two pieces of work connect, or pick the role you're hiring for and see what matches.</p>
  </div>
 
  <div class="lab">
   <aside class="controls">
    <div class="group">
-    <div class="glabel">Run a query</div>
+    <div class="glabel">Explore my work</div>
     <div id="presets" style="display:grid;gap:8px"></div>
    </div>
    <div class="group">
@@ -186,7 +186,6 @@
     <div class="bar"><span>CNN</span><span class="t"><i style="width:74.9%"></i></span><span>74.9%</span></div>
    </div>
    <div class="links"><a href="https://github.com/CelineHarakee/IoT-Cyber-Attack-Detection-Using-ML" target="_blank" rel="noopener">Code ↗</a><a href="https://www.researchgate.net/publication/391458631_IoT_Cyber_Attack_Detection_Using_Machine_Learning" target="_blank" rel="noopener">Paper ↗</a></div>
-   <button class="graphlink" type="button" data-focus="ids">› show in graph</button>
   </article>
  </div>
 </section>
@@ -264,7 +263,7 @@
  </div>
  <div class="toolkit">
   <div class="tk"><h3>AI and machine learning</h3><div class="chips"><button class="sk" type="button" data-focus="ml">Machine Learning</button><button class="sk" type="button" data-focus="dl">Deep Learning</button><button class="sk" type="button" data-focus="rag">RAG</button><button class="sk" type="button" data-focus="llm">LLM Integration</button><button class="sk" type="button" data-focus="nlp">NLP</button><button class="sk" type="button" data-focus="mas">AI Agents</button><button class="sk" type="button" data-focus="kg">Knowledge Graphs</button><button class="sk" type="button" data-focus="cv">Computer Vision</button></div></div>
-  <div class="tk"><h3>Data and big data</h3><div class="chips"><button class="sk" type="button" data-focus="mongo">MongoDB</button><button class="sk" type="button" data-focus="neo4j">Neo4j</button><button class="sk" type="button" data-focus="spark">Apache Spark / PySpark</button><button class="sk" type="button" data-focus="spark">Kafka</button><span class="sk">Hadoop HDFS</span><span class="sk">Spark MLlib</span><span class="sk">Pandas</span><span class="sk">NumPy</span></div></div>
+  <div class="tk"><h3>Data and big data</h3><div class="chips"><button class="sk" type="button" data-focus="mongo">MongoDB</button><button class="sk" type="button" data-focus="neo4j">Neo4j</button><button class="sk" type="button" data-focus="spark">Apache Spark / PySpark</button><button class="sk" type="button" data-focus="kafka">Kafka</button><span class="sk">Hadoop HDFS</span><span class="sk">Spark MLlib</span><span class="sk">Pandas</span><span class="sk">NumPy</span></div></div>
   <div class="tk"><h3>Programming</h3><div class="chips"><button class="sk" type="button" data-focus="py">Python</button><button class="sk" type="button" data-focus="js">JavaScript</button><span class="sk">Java</span><span class="sk">C++</span><button class="sk" type="button" data-focus="sql">SQL</button></div></div>
   <div class="tk"><h3>Backend and tools</h3><div class="chips"><button class="sk" type="button" data-focus="rest">REST APIs</button><span class="sk">SQL / NoSQL databases</span><button class="sk" type="button" data-focus="node">Node.js</button><span class="sk">n8n</span><span class="sk">Git / GitHub</span><button class="sk" type="button" data-focus="docker">Docker</button><span class="sk">Linux</span><span class="sk">Postman</span><span class="sk">Streamlit</span></div></div>
  </div>
@@ -314,52 +313,77 @@
 <script>
 const NODES=[
  {id:"heroz",label:"Heroz",type:"role",year:2026,sub:"AI Intern · Jun 2026 – present",blurb:"Designing and building a hybrid recommendation platform for children's activity discovery, from the MongoDB data model to the Neo4j knowledge graph.",deployed:true},
- {id:"brief",label:"Breifiction",type:"role",year:2025,sub:"Back-End Developer Intern · Summer 2025",blurb:"Built REST endpoints powering an AI assistant that answers shipment and order-status questions for customers.",deployed:true},
+ {id:"brief",label:"Breifiction",type:"role",year:2025,sub:"Back-End Developer Intern · Summer 2025",blurb:"Built backend APIs for an AI-powered customer messaging assistant that automated quick responses to shipment-tracking and order-status questions using real client data.",deployed:true},
  {id:"rec",label:"Heroz Recommender",type:"project",year:2026,sub:"Knowledge graph · Recommender systems",blurb:"Multi-hop Cypher traversal finds candidate activities; a 6-factor weighted score ranks them and explains every recommendation.",deployed:true},
  {id:"traffic",label:"Traffic Edge AI",type:"project",year:2025,sub:"Multi-agent · NLP · Distributed systems · Research",blurb:"Semantic multi-agent traffic coordination across Jeddah intersections, running on a Kafka, HDFS and Spark pipeline. 171 → 13,791 records/sec on 1M sensor records (80.6×).",links:[["Code","https://github.com/layalcanoe/edge-native-agentic-nlp"],["Pipeline","https://github.com/layalcanoe/CS4074_TrafficBigData"],["Paper","https://www.researchgate.net/publication/399393117_Multi-Agent_Edge_AI_for_Intelligent_Traffic_Coordination"]]},
  {id:"hajj",label:"Hajj Buddy",type:"project",year:2025,sub:"RAG · Deployed web app",blurb:"A pilgrim's assistant that answers only from verified Islamic sources, so it can't make things up.",deployed:true,links:[["Code","https://github.com/layalcanoe/hajj-buddy-ai"],["Live","https://hajj-buddy-ai-cet1.onrender.com"]]},
  {id:"agent",label:"AgentNation",type:"project",year:2026,sub:"Senior project · Multi-agent policy simulator",blurb:"Four-layer multi-agent architecture that simulates how a policy ripples across ministries and the workforce."},
  {id:"dorm",label:"dormOra",type:"project",year:2026,sub:"BMC 2026 Hackathon",blurb:"Analyzes skin images for acne, pigmentation, redness and texture, reasoning over a knowledge graph with RAG."},
- {id:"ids",label:"IoT Intrusion Detection",type:"project",year:2025,sub:"Machine learning · Security",blurb:"Pipeline on ~200K CIC IoT 2023 samples. Random Forest reached 95%, ahead of XGBoost, MLP and CNN.",links:[["Code","https://github.com/CelineHarakee/IoT-Cyber-Attack-Detection-Using-ML"],["Paper","https://www.researchgate.net/publication/391458631_IoT_Cyber_Attack_Detection_Using_Machine_Learning"]]},
  {id:"ieee",label:"IEEE · AI & PLC Security",type:"paper",year:2025,sub:"IEEE SCC 2025 · Sousse, Tunisia",blurb:"Peer-reviewed study of cybersecurity risks in AI-enabled powerline communication for smart grids and IoT. Funded by Effat University's Deanship of Graduate Studies and Research.",links:[["Paper","https://www.researchgate.net/publication/391596817_Integrating_AI_and_Cybersecurity_in_Powerline_Connection"]]},
  {id:"netflix",label:"Matrix Completion",type:"paper",year:2025,sub:"Recommender systems · Linear algebra",blurb:"How low-rank matrix factorization recovers missing ratings, told through the Netflix Prize problem.",links:[["Paper","https://www.researchgate.net/publication/399392478_Matrix_Completion_for_Recommender_Systems_A_Linear_Algebra_Perspective_Netflix_Problem"]]},
- {id:"quantum",label:"The Quantum Frontier",type:"paper",year:2024,sub:"Cryptography",blurb:"What quantum computing means for today's encryption, and where post-quantum methods stand.",links:[["Paper","https://www.researchgate.net/publication/387533298_The_Quantum_Frontier_Navigating_the_Future_of_Cybersecurity_in_the_Age_of_Quantum_Computing"]]},
  {id:"med",label:"AI Medical Imaging",type:"paper",year:2024,sub:"Computer vision · Healthcare",blurb:"How CNN-based, multi-modal imaging can support earlier and more reliable diagnosis.",links:[["Paper","https://www.researchgate.net/publication/387602712_Exploring_AI_in_Medical_Imaging_and_Diagnosis"]]},
+ {id:"music",label:"Music Map",type:"project",year:2025,secondary:true,sub:"Web development · JavaScript · SQL",blurb:"A web development project connecting JavaScript and SQL."},
+ {id:"network",label:"Mini Country Network",type:"project",year:2025,secondary:true,sub:"Network simulation · VLANs · DHCP · DNS · ACLs",blurb:"Mini Country Network Simulation explores network configuration with VLANs, DHCP, DNS, and access-control lists."},
+ {id:"players",label:"Player Performance Analysis",type:"project",year:2025,secondary:true,sub:"Data analysis · Python",blurb:"A Python data analysis project examining player performance."},
+ {id:"charging",label:"ChargingZone PLC",type:"project",year:2025,secondary:true,sub:"Networking · Powerline communication",blurb:"A systems project exploring networking and powerline communication."},
+ {id:"numerical-research",label:"Numerical Methods",type:"paper",year:2025,secondary:true,sub:"Numerical computing · Python · Euler · Taylor · RK6",blurb:"Numerical solutions to an initial value problem using Euler, Taylor, and sixth-order Runge–Kutta methods.",links:[["Paper","https://www.researchgate.net/publication/391596562_Numerical_Solutions_to_an_Initial_Value_Problem_Using_Euler_Taylor_and_Runge-Kutta_6th_Order_Methods"]]},
+ {id:"plc-research",label:"PLC Application Design",type:"paper",year:2025,secondary:true,sub:"Powerline communication · IoT networks · Smart homes · UI/UX",blurb:"Enhancing Powerline Communication: Research and Application Design explores powerline communication for IoT networks and smart homes.",links:[["Paper","https://www.researchgate.net/publication/391217469_AI-Powered_Powerline_Communication_PLC"]]},
+ {id:"scheduling",label:"Dynamic Time Quantum",type:"paper",year:2024,secondary:true,sub:"Operating systems · CPU scheduling",blurb:"Revolutionizing Round Robin: Dynamic Time Quantum Scheduling for CPU Efficiency studies dynamic time quantum scheduling.",links:[["Paper","https://www.researchgate.net/publication/380971608_Revolutionizing_Round_Robin_Dynamic_Time_Quantum_Scheduling_for_CPU_Efficiency"]]},
 ];
-const SKILLS={py:"Python",js:"JavaScript",node:"Node.js",neo4j:"Neo4j · Cypher",mongo:"MongoDB",kg:"Knowledge Graphs",rag:"RAG",llm:"LLMs",nlp:"NLP",mas:"Multi-Agent Systems",ml:"Machine Learning",dl:"Deep Learning",cv:"Computer Vision",recsys:"Recommender Systems",spark:"Spark · Kafka",rest:"REST APIs",sql:"SQL",cyber:"Cybersecurity",iot:"IoT",docker:"Docker"};
+const SKILLS={py:"Python",js:"JavaScript",node:"Node.js",neo4j:"Neo4j · Cypher",mongo:"MongoDB",kg:"Knowledge Graphs",rag:"RAG",llm:"LLMs",nlp:"NLP",mas:"Multi-Agent Systems",ml:"Machine Learning",dl:"Deep Learning",cv:"Computer Vision",recsys:"Recommender Systems",spark:"Apache Spark / PySpark",kafka:"Apache Kafka",automation:"AI Automation",rest:"REST APIs",sql:"SQL",iot:"IoT",docker:"Docker",networking:"Networking",analysis:"Data Analysis",algorithms:"Algorithms",os:"Operating Systems",numerical:"Numerical Computing",plc:"PLC / Communications"};
 Object.entries(SKILLS).forEach(([id,label])=>NODES.push({id,label,type:"skill"}));
 const E=[
  ["heroz","rec","WORKED_ON"],["heroz","node","USES"],["heroz","mongo","USES"],
- ["brief","rest","USES"],["brief","sql","USES"],["brief","llm","USES"],["brief","docker","USES"],["brief","node","USES"],
+ ["brief","rest","USES"],["brief","sql","USES"],["brief","llm","USES"],["brief","docker","USES"],["brief","node","USES"],["brief","automation","USES"],
  ["rec","kg","USES"],["rec","neo4j","USES"],["rec","mongo","USES"],["rec","js","USES"],["rec","recsys","USES"],["rec","ml","USES"],
- ["traffic","mas","USES"],["traffic","nlp","USES"],["traffic","rag","USES"],["traffic","kg","USES"],["traffic","llm","USES"],["traffic","spark","USES"],["traffic","py","USES"],["traffic","ml","USES"],
+ ["traffic","mas","USES"],["traffic","nlp","USES"],["traffic","rag","USES"],["traffic","kg","USES"],["traffic","llm","USES"],["traffic","spark","USES"],["traffic","kafka","USES"],["traffic","py","USES"],["traffic","ml","USES"],
  ["hajj","rag","USES"],["hajj","llm","USES"],["hajj","nlp","USES"],["hajj","node","USES"],
  ["agent","mas","USES"],["agent","llm","USES"],["agent","py","USES"],
  ["dorm","rag","USES"],["dorm","kg","USES"],["dorm","cv","USES"],["dorm","llm","USES"],
- ["ids","ml","USES"],["ids","dl","USES"],["ids","py","USES"],["ids","cyber","USES"],["ids","iot","USES"],
- ["ieee","cyber","STUDIES"],["ieee","iot","STUDIES"],["ieee","ml","STUDIES"],
+ ["ieee","iot","STUDIES"],["ieee","ml","STUDIES"],
  ["netflix","recsys","STUDIES"],["netflix","ml","STUDIES"],
- ["quantum","cyber","STUDIES"],
- ["med","cv","STUDIES"],["med","dl","STUDIES"]
+ ["med","cv","STUDIES"],["med","dl","STUDIES"],["med","ml","STUDIES"],
+ ["music","js","USES"],["music","sql","USES"],
+ ["network","networking","USES"],
+ ["players","py","USES"],["players","analysis","USES"],
+ ["charging","networking","USES"],["charging","plc","USES"],
+ ["numerical-research","py","STUDIES"],["numerical-research","numerical","STUDIES"],["numerical-research","algorithms","STUDIES"],
+ ["ieee","plc","STUDIES"],
+ ["plc-research","plc","STUDIES"],["plc-research","networking","STUDIES"],["plc-research","iot","STUDIES"],
+ ["scheduling","algorithms","STUDIES"],["scheduling","os","STUDIES"],
+ ["automation","llm","EXTENDS"],["automation","rest","EXTENDS"],["automation","node","EXTENDS"]
 ];
 const byId=Object.fromEntries(NODES.map(n=>[n.id,n]));
 const adj={};NODES.forEach(n=>adj[n.id]=[]);
 E.forEach(([a,b,r])=>{adj[a].push({id:b,rel:r});adj[b].push({id:a,rel:r})});
-NODES.filter(n=>n.type==="skill").forEach(s=>{s.year=Math.min(...adj[s.id].map(x=>byId[x.id].year||9999))});
+NODES.filter(n=>n.type==="skill").forEach(s=>{s.year=Math.min(...adj[s.id].filter(x=>byId[x.id].type!=="skill").map(x=>byId[x.id].year||9999))});
 const TYPE={role:"Role",project:"Project",paper:"Paper",skill:"Skill"};
 const LABEL={role:"Role",project:"Project",paper:"Paper",skill:"Skill"};
 const key=(a,b)=>a<b?a+"|"+b:b+"|"+a;
 
 const PRESETS=[
- {name:"Where I've used RAG",run:()=>skillQuery(["rag"]),cy:'MATCH (w)-[:USES]->(:Skill {name:"RAG"})\nRETURN w'},
- {name:"Knowledge graph work",run:()=>skillQuery(["kg","neo4j"]),cy:'MATCH (w)-[:USES]->(s:Skill)\nWHERE s.name IN ["Knowledge Graphs","Neo4j"]\nRETURN DISTINCT w'},
- {name:"Security and IoT research",run:()=>skillQuery(["cyber","iot"]),cy:'MATCH (w)-[:USES|STUDIES]->(s:Skill)\nWHERE s.name IN ["Cybersecurity","IoT"]\nRETURN DISTINCT w'},
- {name:"Running in production",run:()=>{const ids=NODES.filter(n=>n.deployed).map(n=>n.id);return{nodes:new Set(ids),links:new Set([key("heroz","rec")]),list:ids.map(id=>({id,why:byId[id].sub}))}},cy:"MATCH (w)\nWHERE w.deployed = true\nRETURN w"},
+ {name:"Where I've used agents & automation",primary:["mas","automation","llm"],support:["rag","nlp","rest","node","kg","py","js"]},
+ {name:"Where I've built backend systems",primary:["rest","node","sql","mongo","js","docker","neo4j"],support:[]},
+ {name:"Where I've worked with data & knowledge",primary:["kg","neo4j","mongo","recsys","spark","kafka","analysis","sql","numerical"],support:["ml","py"]},
 ];
-function skillQuery(skills){
- const nodes=new Set(skills),links=new Set(),hits={};
- skills.forEach(s=>adj[s].forEach(x=>{if(byId[x.id].type!=="skill"){nodes.add(x.id);links.add(key(s,x.id));(hits[x.id]=hits[x.id]||[]).push(SKILLS[s])}}));
- return{nodes,links,list:Object.keys(hits).sort((a,b)=>(byId[b].year||0)-(byId[a].year||0)).map(id=>({id,why:"via "+hits[id].join(", ")}))};
+function explorationQuery(preset){
+ const {primary,support}=preset,candidates=new Set();
+ primary.forEach(s=>adj[s].forEach(x=>{
+  if(byId[x.id].type!=="skill"&&visible(byId[x.id]))candidates.add(x.id);
+ }));
+ const hits=[...candidates].map(id=>{
+  const matched=adj[id].filter(x=>primary.includes(x.id)||support.includes(x.id))
+   .sort((a,b)=>Number(primary.includes(b.id))-Number(primary.includes(a.id)));
+  return{id,matched,score:matched.reduce((sum,x)=>sum+(primary.includes(x.id)?1:.35),0)};
+ }).sort((a,b)=>b.score-a.score||(byId[b.id].year||0)-(byId[a.id].year||0));
+ const nodes=new Set(),links=new Set();
+ hits.forEach(hit=>{
+  nodes.add(hit.id);
+  hit.matched.forEach(x=>{nodes.add(x.id);links.add(key(hit.id,x.id))});
+ });
+ const names=ids=>JSON.stringify(ids.map(id=>SKILLS[id]));
+ const cy=`MATCH (w)-[:USES|STUDIES]->(s:Skill)\nWHERE s.name IN ${names(primary)}\nWITH DISTINCT w\nMATCH (w)-[:USES|STUDIES]->(m:Skill)\nWHERE m.name IN ${names([...primary,...support])}\nRETURN w, sum(CASE WHEN m.name IN ${names(primary)} THEN 1 ELSE 0.35 END) AS relevance\nORDER BY relevance DESC`;
+ return{nodes,links,cy,list:hits.map(hit=>({id:hit.id,why:"via "+hit.matched.map(x=>SKILLS[x.id]).join(", ")}))};
 }
 function bfs(a,b){
  const prev={[a]:null},q=[a];
@@ -376,15 +400,16 @@ function pathQuery(a,b){
 
 const LENSES={
  "AI / ML engineer":{ml:1,dl:1,rag:1,llm:1,nlp:.8,kg:.8,cv:.7,recsys:.8,mas:.8,py:.6},
- "Backend engineer":{node:1,rest:1,sql:1,mongo:1,neo4j:.8,js:.8,docker:1,py:.5},
- "Data / KG engineer":{neo4j:1,kg:1,mongo:.8,spark:1,sql:.8,recsys:.6,py:.7},
- "Researcher":{ml:.7,cyber:1,iot:.8,recsys:.7,mas:.8,cv:.6,dl:.6}
+ "AI Automation / Agent Engineer":{mas:1,llm:1,rag:1,automation:1,nlp:.6,rest:.6,node:.6,kg:.6,py:.6,js:.6},
+ "Backend engineer":{node:1,rest:1,sql:1.2,mongo:1,neo4j:.8,js:1,docker:1,py:.5},
+ "Data / KG engineer":{neo4j:1,kg:1,mongo:.8,spark:1,kafka:1,analysis:1,sql:.8,recsys:.6,py:.7},
+ "Researcher":{ml:.7,iot:.6,recsys:.7,mas:.8,cv:.6,dl:.6,networking:.8,plc:1,numerical:1,algorithms:.8,os:.8,analysis:.7,py:.4}
 };
 function lensQuery(name){
  const w=LENSES[name],scores=[];
- NODES.filter(n=>(n.type==="project"||n.type==="paper")&&visible(n)).forEach(n=>{
+ NODES.filter(n=>n.type!=="skill"&&visible(n)).forEach(n=>{
   const m=adj[n.id].filter(x=>w[x.id]).sort((a,b)=>w[b.id]-w[a.id]);
-  const s=m.reduce((t,x)=>t+w[x.id],0);if(s>0)scores.push({id:n.id,s,m:m.map(x=>x.id)});
+  const s=m.reduce((t,x)=>t+w[x.id],0)*(name==="Researcher"&&n.type==="paper"?1.5:1);if(s>0)scores.push({id:n.id,s,m:m.map(x=>x.id)});
  });
  scores.sort((a,b)=>b.s-a.s);const top=scores.slice(0,3),max=scores[0]?scores[0].s:1;
  const nodes=new Set(),links=new Set();
@@ -397,7 +422,8 @@ let maxYear=2026,state=null,active={kind:"overview"};
 const visible=n=>(n.year||0)<=maxYear;
 
 const svg=d3.select("#graph"),box=document.getElementById("graphBox");
-let W=800,H=560;
+let W=800,H=560,emphasis=null,hovered=null;
+const labelBoxes=new Map();
 const gL=svg.append("g"),gN=svg.append("g");
 const links=E.map(([a,b,r])=>({source:a,target:b,rel:r,k:key(a,b)}));
 const R={role:11,project:8.5,paper:7.5,skill:3.6};
@@ -413,7 +439,9 @@ nodeSel.each(function(d){
  else g.append("path").attr("class","mark").attr("d",shape(d,R[d.type])).attr("fill","#0E1525").attr("stroke-width",1.6);
  g.append("text").attr("text-anchor","middle").attr("dy",R[d.type]+(d.type==="skill"?12:15)).attr("font-family",d.type==="skill"?"JetBrains Mono, monospace":"Geist, system-ui, sans-serif").attr("font-size",d.type==="skill"?10.5:12.5).attr("font-weight",d.type==="skill"?400:500).attr("paint-order","stroke").attr("stroke","#0E1525").attr("stroke-width",4).text(d.label);
 });
-nodeSel.on("click",(e,d)=>{active={kind:"node",id:d.id};update()}).on("keydown",(e,d)=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();active={kind:"node",id:d.id};update()}});
+nodeSel.on("pointerenter",(e,d)=>{hovered=d.id;refreshLabels()}).on("pointerleave",()=>{hovered=null;refreshLabels()})
+ .on("focusin",(e,d)=>{hovered=d.id;refreshLabels()}).on("focusout",()=>{hovered=null;refreshLabels()})
+ .on("click",(e,d)=>{active={kind:"node",id:d.id};update()}).on("keydown",(e,d)=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();active={kind:"node",id:d.id};update()}});
 
 const sim=d3.forceSimulation(NODES)
  .force("link",d3.forceLink(links).id(d=>d.id).distance(l=>l.rel==="WORKED_ON"?60:l.rel==="EXTENDS"?80:72).strength(.55))
@@ -426,6 +454,85 @@ function tick(){
  NODES.forEach(d=>{d.x=Math.max(40,Math.min(W-40,d.x));d.y=Math.max(24,Math.min(H-30,d.y))});
  lineSel.attr("x1",d=>d.source.x).attr("y1",d=>d.source.y).attr("x2",d=>d.target.x).attr("y2",d=>d.target.y);
  nodeSel.attr("transform",d=>`translate(${d.x},${d.y})`);
+ refreshLabels();
+}
+// Presentation only: query results, lens scores, and graph topology stay intact.
+function visualEmphasis(){
+ if(state.overview||state.path)return null;
+ let ranked=state.list?state.list.map(x=>x.id):[];
+ if(active.kind==="lens")ranked=Object.keys(state.rel).sort((a,b)=>state.rel[b]-state.rel[a]);
+ if(state.sel)ranked=adj[state.sel].map(x=>x.id).filter(id=>byId[id].type!=="skill"&&visible(byId[id]));
+ const primary=new Set(ranked.filter(id=>byId[id].type!=="skill"&&visible(byId[id])).slice(0,5));
+ if(state.sel)primary.add(state.sel);
+ const support=new Map(),matchLinks=new Set(state.links);
+ primary.forEach(id=>adj[id].forEach(x=>{
+  if(byId[x.id].type!=="skill"||!visible(byId[x.id]))return;
+  const matched=active.kind==="lens"?LENSES[active.name][x.id]:state.links.has(key(id,x.id));
+  if(!matched)return;
+  matchLinks.add(key(id,x.id));
+  let weight=1;
+  if(active.kind==="preset")weight=PRESETS[active.i].primary.includes(x.id)?1:.35;
+  if(active.kind==="lens")weight=LENSES[active.name][x.id]||0;
+  support.set(x.id,(support.get(x.id)||0)+weight);
+ }));
+ if(state.sel&&byId[state.sel].type==="skill")support.delete(state.sel);
+ const concepts=[...support.keys()].sort((a,b)=>support.get(b)-support.get(a));
+ return{primary,support,concepts,links:matchLinks,essential:new Set(concepts.slice(0,W<560?3:8))};
+}
+function nodeLevel(id){
+ return !emphasis?state.nodes.has(id)?1:3:emphasis.primary.has(id)?1:emphasis.support.has(id)?2:3;
+}
+function refreshLabels(){
+ if(!state)return;
+ const texts=nodeSel.select("text").attr("x",0),occupied=[],shown=new Set();
+ const priority=d=>d.id===hovered?1000:d.id===state.sel?900:nodeLevel(d.id)===1?800-(emphasis?[...emphasis.primary].indexOf(d.id):0):
+  emphasis&&emphasis.essential.has(d.id)?500+(emphasis.support.get(d.id)||0):100;
+ const candidates=NODES.filter(d=>{
+  if(!visible(d))return false;
+  if(d.id===hovered||d.id===state.sel)return true;
+  if(state.overview)return state.nodes.has(d.id);
+  if(!emphasis)return state.nodes.has(d.id);
+  return emphasis.primary.has(d.id)||emphasis.essential.has(d.id);
+ }).sort((a,b)=>priority(b)-priority(a));
+ // Cache text metrics; only translated rectangles change during simulation ticks.
+ const labelById=new Map();texts.each(function(d){labelById.set(d.id,this)});
+ candidates.forEach(d=>{
+  const el=labelById.get(d.id),normal=R[d.type]+(d.type==="skill"?12:15);
+  if(!labelBoxes.has(d.id)){
+   el.setAttribute("dy",normal);
+   const b=el.getBBox();labelBoxes.set(d.id,{x:b.x,y:b.y,width:b.width,height:b.height});
+  }
+  const b=labelBoxes.get(d.id),forced=d.id===hovered||d.id===state.sel;
+  // Default overview keeps its original label placement and visibility.
+  const offsets=state.overview?[0]:[0,-normal-R[d.type]-6];
+  for(const offset of offsets){
+   const rect={left:d.x+b.x-3,right:d.x+b.x+b.width+3,top:d.y+b.y+offset-3,bottom:d.y+b.y+b.height+offset+3};
+   const collides=occupied.some(r=>rect.left<r.right&&rect.right>r.left&&rect.top<r.bottom&&rect.bottom>r.top);
+   const inside=rect.left>=2&&rect.right<=W-2&&rect.top>=2&&rect.bottom<=H-2;
+   if(state.overview||forced||(!collides&&inside)){
+    el.setAttribute("dy",normal+offset);
+    if(forced){const shift=rect.left<2?2-rect.left:rect.right>W-2?W-2-rect.right:0;el.setAttribute("x",shift)}
+    shown.add(d.id);occupied.push(rect);break;
+   }
+  }
+ });
+ texts.attr("opacity",d=>shown.has(d.id)?nodeLevel(d.id)===2&&d.id!==hovered?.75:1:0);
+ nodeSel.style("opacity",d=>d.id===hovered?1:null);
+}
+if(document.fonts)document.fonts.ready.then(()=>{labelBoxes.clear();refreshLabels()});
+function edgeStyle(d){
+ if(!emphasis){
+  const on=state.links.has(d.k);
+  return{color:on?(state.path?"#3DD6F5":state.sel?"#B8A6FF":"#3DD6F5"):"#26324D",width:on?1.8:1,opacity:on?.95:.55};
+ }
+ const a=d.source.id,b=d.target.id,primary=emphasis.primary,essential=emphasis.essential;
+ const main=emphasis.links.has(d.k)&&(primary.has(a)||primary.has(b));
+ if(main){
+  const strong=essential.has(a)||essential.has(b)||a===state.sel||b===state.sel;
+  return{color:state.sel?"#B8A6FF":"#3DD6F5",width:strong?1.8:1.1,opacity:strong?.8:.4};
+ }
+ const context=emphasis.links.has(d.k)||(emphasis.support.has(a)&&emphasis.support.has(b));
+ return{color:context?"#3DD6F5":"#26324D",width:context?.8:1,opacity:context?.22:.1};
 }
 function layout(){
  const small=W<560;
@@ -449,14 +556,19 @@ function layout(){
 function size(){
  W=box.clientWidth;H=W<560?460:W<800?520:580;
  svg.attr("viewBox",`0 0 ${W} ${H}`).attr("height",H);
+ if(state){
+  emphasis=visualEmphasis();
+  lineSel.attr("stroke",d=>edgeStyle(d).color).attr("stroke-width",d=>edgeStyle(d).width).attr("opacity",d=>edgeStyle(d).opacity);
+ }
  layout();
+ refreshLabels();
 }
 new ResizeObserver(()=>size()).observe(box);
 
 function compute(){
  if(active.kind==="overview"){
-  const ids=["rec","traffic","hajj","agent","dorm","ids"].filter(id=>visible(byId[id]));
-  return{nodes:new Set(NODES.map(n=>n.id)),links:new Set(),overview:true,cy:"MATCH (n)-[r]-(m)\nRETURN n, r, m",count:"full graph",list:ids.map(id=>({id,why:byId[id].sub}))};
+  const ids=["rec","traffic","hajj","agent","dorm"].filter(id=>visible(byId[id]));
+  return{nodes:new Set(NODES.filter(n=>!n.secondary).map(n=>n.id)),links:new Set(),overview:true,cy:"MATCH (n)-[r]-(m)\nRETURN n, r, m",count:"full graph",list:ids.map(id=>({id,why:byId[id].sub}))};
  }
  if(active.kind==="node"){
   const n=byId[active.id],nodes=new Set([n.id]),ls=new Set();
@@ -464,9 +576,8 @@ function compute(){
   return{nodes,links:ls,sel:n.id,cy:`MATCH (n {name:"${n.label}"})-[r]-(m)\nRETURN n, r, m`,count:`${ls.size} relationships`};
  }
  if(active.kind==="preset"){
-  const p=PRESETS[active.i],r=p.run();
-  const cy=p.cy||`MATCH p = shortestPath(\n  (a {name:"${byId[p.path[0]].label}"})-[*..6]-(b {name:"${byId[p.path[1]].label}"}))\nRETURN p`;
-  return{...r,cy,count:r.path?`path length ${r.path.length-1}`:r.list?`${r.list.length} results`:"no path"};
+  const r=explorationQuery(PRESETS[active.i]);
+  return{...r,count:`${r.list.length} results`};
  }
  if(active.kind==="path"){
   const r=pathQuery(active.a,active.b);
@@ -474,18 +585,20 @@ function compute(){
  }
  if(active.kind==="lens"){
   const r=lensQuery(active.name);
-  return{...r,cy:`MATCH (w)-[:USES|STUDIES]->(s:Skill)\nWHERE s.name IN $skills["${active.name}"]\nRETURN w, sum(s.weight) AS score\nORDER BY score DESC LIMIT 3`,count:"top 3 by score"};
+  return{...r,cy:`MATCH (w)-[:USES|STUDIES]->(s:Skill)\nWHERE s.name IN $skills["${active.name}"]\nRETURN w, sum(s.weight)${active.name==="Researcher"?" * CASE WHEN w:Paper THEN 1.5 ELSE 1 END":""} AS score\nORDER BY score DESC LIMIT 3`,count:"top 3 by score"};
  }
 }
 
 function update(){
  state=compute();
+ hovered=null;emphasis=visualEmphasis();
  layout();
- const hiN=state.nodes,hiL=state.links,rel=state.rel;
+ const hiN=state.nodes,rel=state.rel;
  nodeSel.each(function(d){
-  const g=d3.select(this),vis=visible(d),on=hiN.has(d.id),sel=state.sel===d.id;
+  const g=d3.select(this),vis=visible(d),on=emphasis?nodeLevel(d.id)<3:hiN.has(d.id),sel=state.sel===d.id;
   g.attr("display",vis?null:"none");
-  g.transition().duration(350).attr("opacity",on?1:.2);
+  const level=nodeLevel(d.id);
+  g.transition().duration(350).attr("opacity",emphasis?(level===1?1:level===2?.65:.14):on?1:.2);
   let r=R[d.type];if(rel&&d.type!=="skill")r=R[d.type]*(rel[d.id]?0.8+rel[d.id]*0.8:0.75);
   const onPath=state.path&&state.path.includes(d.id);
   const col=sel?"#B8A6FF":onPath?"#3DD6F5":d.type==="skill"?(on?"#8D99B3":"#5A6680"):d.type==="role"?"#B8A6FF":"#E6EDF7";
@@ -493,12 +606,13 @@ function update(){
   if(d.type==="project"||d.type==="skill")mk.attr("r",r).attr("fill",col);
   else mk.attr("d",shape(d,r)).attr("stroke",col);
   g.select(".halo").attr("stroke",sel?"#B8A6FF":"#3DD6F5").transition().duration(350).attr("r",r+8).attr("opacity",sel||onPath?.9:0);
-  g.select("text").attr("fill",sel?"#B8A6FF":on?(d.type==="skill"?"#B4BED3":"#E6EDF7"):"#5A6680").transition().duration(300).attr("opacity",state.overview||on?1:0);
+  g.select("text").attr("fill",sel?"#B8A6FF":on?(d.type==="skill"?"#B4BED3":"#E6EDF7"):"#5A6680");
  });
  lineSel.attr("display",d=>visible(d.source)&&visible(d.target)?null:"none")
   .transition().duration(350)
-  .attr("stroke",d=>hiL.has(d.k)?(state.path?"#3DD6F5":state.sel?"#B8A6FF":"#3DD6F5"):"#26324D")
-  .attr("stroke-width",d=>hiL.has(d.k)?1.8:1).attr("opacity",d=>hiL.has(d.k)?.95:.55);
+  .attr("stroke",d=>edgeStyle(d).color)
+  .attr("stroke-width",d=>edgeStyle(d).width).attr("opacity",d=>edgeStyle(d).opacity);
+ refreshLabels();
  const vn=NODES.filter(visible),ve=links.filter(l=>visible(l.source)&&visible(l.target));
  document.getElementById("meta").textContent=`graph · ${vn.length} nodes · ${ve.length} relationships`;
  document.getElementById("cypher").textContent=state.cy;
@@ -513,8 +627,9 @@ function renderDetail(){
  let id=state.sel||(state.path?state.path[state.path.length-1]:null)||(state.list&&state.list[0]&&state.list[0].id)||"rec";
  const n=byId[id],el=document.getElementById("detail");
  if(n.type==="skill"){
-  const used=adj[n.id].filter(x=>visible(byId[x.id])).map(x=>byId[x.id]);
-  el.innerHTML=`<div class="type">Skill</div><h3>${esc(n.label)}</h3><p>Used in ${used.length} ${used.length===1?"piece":"pieces"} of work.</p><div class="tags">${used.map(u=>`<button class="tag" data-id="${u.id}" type="button">${esc(u.label)}</button>`).join("")}</div>`;
+  const neighbors=adj[n.id].filter(x=>visible(byId[x.id])).map(x=>byId[x.id]);
+  const used=neighbors.filter(u=>u.type!=="skill"),related=neighbors.filter(u=>u.type==="skill");
+  el.innerHTML=`<div class="type">Skill</div><h3>${esc(n.label)}</h3><p>Used in ${used.length} ${used.length===1?"piece":"pieces"} of work.</p><div class="tags">${used.map(u=>`<button class="tag" data-id="${u.id}" type="button">${esc(u.label)}</button>`).join("")}</div>${related.length?`<p style="margin-top:14px">Related skills</p><div class="tags">${related.map(u=>`<button class="tag" data-id="${u.id}" type="button">${esc(u.label)}</button>`).join("")}</div>`:""}`;
  }else{
   const sk=adj[n.id].filter(x=>byId[x.id].type==="skill"&&visible(byId[x.id]));
   const rel=adj[n.id].filter(x=>byId[x.id].type!=="skill"&&visible(byId[x.id]));
