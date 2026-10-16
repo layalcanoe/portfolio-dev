@@ -81,8 +81,8 @@
 <main class="wrap lab-section" id="lab" style="border-top:1px solid var(--line)">
  <div class="lab-head">
   <div class="eyebrow">MATCH (layal)-[*]-(work) RETURN *</div>
-  <h2>Everything I've built, as a graph</h2>
-  <p>Each project, paper, role, and skill is a node. Explore my work, trace how two pieces of work connect, or pick the role you're hiring for and see what matches.</p>
+  <h2>Everything I've built, as a graph.</h2>
+  <p>Explore how my projects, research, experience, and technologies connect.</p>
  </div>
 
  <div class="lab">
@@ -92,17 +92,13 @@
     <div id="presets" style="display:grid;gap:8px"></div>
    </div>
    <div class="group">
-    <div class="glabel">Hiring for</div>
+    <div class="glabel">See my work as a...</div>
     <div class="lens" id="lens"></div>
-   </div>
-   <div class="group">
-    <div class="glabel"><span>Timeline</span><span id="yearOut" style="color:var(--cyan)">up to 2026</span></div>
-    <input type="range" id="year" min="2024" max="2026" step="1" value="2026" aria-label="Show work up to year">
-    <div class="ticks"><span>2024</span><span>2025</span><span>2026</span></div>
    </div>
   </aside>
 
   <div class="graph-col">
+   <p class="graph-instruction">Choose a path above, or tap any node to explore.</p>
    <div class="panel">
     <div class="panel-top">
      <span id="meta">graph</span>
@@ -356,20 +352,19 @@ const E=[
 const byId=Object.fromEntries(NODES.map(n=>[n.id,n]));
 const adj={};NODES.forEach(n=>adj[n.id]=[]);
 E.forEach(([a,b,r])=>{adj[a].push({id:b,rel:r});adj[b].push({id:a,rel:r})});
-NODES.filter(n=>n.type==="skill").forEach(s=>{s.year=Math.min(...adj[s.id].filter(x=>byId[x.id].type!=="skill").map(x=>byId[x.id].year||9999))});
 const TYPE={role:"Role",project:"Project",paper:"Paper",skill:"Skill"};
 const LABEL={role:"Role",project:"Project",paper:"Paper",skill:"Skill"};
 const key=(a,b)=>a<b?a+"|"+b:b+"|"+a;
 
 const PRESETS=[
- {name:"Where I've used agents & automation",primary:["mas","automation","llm"],support:["rag","nlp","rest","node","kg","py","js"]},
- {name:"Where I've built backend systems",primary:["rest","node","sql","mongo","js","docker","neo4j"],support:[]},
- {name:"Where I've worked with data & knowledge",primary:["kg","neo4j","mongo","recsys","spark","kafka","analysis","sql","numerical"],support:["ml","py"]},
+ {name:"Agents & automation",primary:["mas","automation","llm"],support:["rag","nlp","rest","node","kg","py","js"]},
+ {name:"Backend systems",primary:["rest","node","sql","mongo","js","docker","neo4j"],support:[]},
+ {name:"Data & knowledge",primary:["kg","neo4j","mongo","recsys","spark","kafka","analysis","sql","numerical"],support:["ml","py"]},
 ];
 function explorationQuery(preset){
  const {primary,support}=preset,candidates=new Set();
  primary.forEach(s=>adj[s].forEach(x=>{
-  if(byId[x.id].type!=="skill"&&visible(byId[x.id]))candidates.add(x.id);
+  if(byId[x.id].type!=="skill")candidates.add(x.id);
  }));
  const hits=[...candidates].map(id=>{
   const matched=adj[id].filter(x=>primary.includes(x.id)||support.includes(x.id))
@@ -387,13 +382,13 @@ function explorationQuery(preset){
 }
 function bfs(a,b){
  const prev={[a]:null},q=[a];
- while(q.length){const c=q.shift();if(c===b)break;for(const x of adj[c]){if(!(x.id in prev)&&visible(byId[x.id])){prev[x.id]=c;q.push(x.id)}}}
+ while(q.length){const c=q.shift();if(c===b)break;for(const x of adj[c]){if(!(x.id in prev)){prev[x.id]=c;q.push(x.id)}}}
  if(!(b in prev))return null;
  const p=[];for(let c=b;c!==null;c=prev[c])p.unshift(c);return p;
 }
 function pathQuery(a,b){
  const p=bfs(a,b);
- if(!p)return{nodes:new Set([a,b]),links:new Set(),narr:"No connection within the current timeline."};
+ if(!p)return{nodes:new Set([a,b]),links:new Set(),narr:"No connection found."};
  const links=new Set();for(let i=0;i<p.length-1;i++)links.add(key(p[i],p[i+1]));
  return{nodes:new Set(p),links,path:p};
 }
@@ -407,7 +402,7 @@ const LENSES={
 };
 function lensQuery(name){
  const w=LENSES[name],scores=[];
- NODES.filter(n=>n.type!=="skill"&&visible(n)).forEach(n=>{
+ NODES.filter(n=>n.type!=="skill").forEach(n=>{
   const m=adj[n.id].filter(x=>w[x.id]).sort((a,b)=>w[b.id]-w[a.id]);
   const s=m.reduce((t,x)=>t+w[x.id],0)*(name==="Researcher"&&n.type==="paper"?1.5:1);if(s>0)scores.push({id:n.id,s,m:m.map(x=>x.id)});
  });
@@ -418,8 +413,7 @@ function lensQuery(name){
  return{nodes,links,rel,list:top.map(t=>({id:t.id,score:Math.round(t.s/max*100),why:t.m.slice(0,3).map(s=>SKILLS[s])}))};
 }
 
-let maxYear=2026,state=null,active={kind:"overview"};
-const visible=n=>(n.year||0)<=maxYear;
+let state=null,active={kind:"overview"};
 
 const svg=d3.select("#graph"),box=document.getElementById("graphBox");
 let W=800,H=560,emphasis=null,hovered=null;
@@ -458,15 +452,24 @@ function tick(){
 }
 // Presentation only: query results, lens scores, and graph topology stay intact.
 function visualEmphasis(){
- if(state.overview||state.path)return null;
+ if(state.path)return null;
+ if(state.overview){
+  const primary=new Set(["heroz","rec"]),support=new Map(),matchLinks=new Set();
+  primary.forEach(id=>adj[id].forEach(x=>{
+   matchLinks.add(key(id,x.id));
+   if(byId[x.id].type==="skill")support.set(x.id,1);
+  }));
+  const concepts=["kg","neo4j","recsys","mongo","node","js","ml"].filter(id=>support.has(id));
+  return{primary,support,concepts,links:matchLinks,essential:new Set(concepts.slice(0,W<560?3:5))};
+ }
  let ranked=state.list?state.list.map(x=>x.id):[];
  if(active.kind==="lens")ranked=Object.keys(state.rel).sort((a,b)=>state.rel[b]-state.rel[a]);
- if(state.sel)ranked=adj[state.sel].map(x=>x.id).filter(id=>byId[id].type!=="skill"&&visible(byId[id]));
- const primary=new Set(ranked.filter(id=>byId[id].type!=="skill"&&visible(byId[id])).slice(0,5));
+ if(state.sel)ranked=adj[state.sel].map(x=>x.id).filter(id=>byId[id].type!=="skill");
+ const primary=new Set(ranked.filter(id=>byId[id].type!=="skill").slice(0,5));
  if(state.sel)primary.add(state.sel);
  const support=new Map(),matchLinks=new Set(state.links);
  primary.forEach(id=>adj[id].forEach(x=>{
-  if(byId[x.id].type!=="skill"||!visible(byId[x.id]))return;
+  if(byId[x.id].type!=="skill")return;
   const matched=active.kind==="lens"?LENSES[active.name][x.id]:state.links.has(key(id,x.id));
   if(!matched)return;
   matchLinks.add(key(id,x.id));
@@ -488,9 +491,7 @@ function refreshLabels(){
  const priority=d=>d.id===hovered?1000:d.id===state.sel?900:nodeLevel(d.id)===1?800-(emphasis?[...emphasis.primary].indexOf(d.id):0):
   emphasis&&emphasis.essential.has(d.id)?500+(emphasis.support.get(d.id)||0):100;
  const candidates=NODES.filter(d=>{
-  if(!visible(d))return false;
   if(d.id===hovered||d.id===state.sel)return true;
-  if(state.overview)return state.nodes.has(d.id);
   if(!emphasis)return state.nodes.has(d.id);
   return emphasis.primary.has(d.id)||emphasis.essential.has(d.id);
  }).sort((a,b)=>priority(b)-priority(a));
@@ -502,21 +503,20 @@ function refreshLabels(){
    el.setAttribute("dy",normal);
    const b=el.getBBox();labelBoxes.set(d.id,{x:b.x,y:b.y,width:b.width,height:b.height});
   }
-  const b=labelBoxes.get(d.id),forced=d.id===hovered||d.id===state.sel;
-  // Default overview keeps its original label placement and visibility.
-  const offsets=state.overview?[0]:[0,-normal-R[d.type]-6];
+  const b=labelBoxes.get(d.id),forced=d.id===hovered||d.id===state.sel||(state.overview&&emphasis.primary.has(d.id));
+  const offsets=[0,-normal-R[d.type]-6];
   for(const offset of offsets){
    const rect={left:d.x+b.x-3,right:d.x+b.x+b.width+3,top:d.y+b.y+offset-3,bottom:d.y+b.y+b.height+offset+3};
    const collides=occupied.some(r=>rect.left<r.right&&rect.right>r.left&&rect.top<r.bottom&&rect.bottom>r.top);
    const inside=rect.left>=2&&rect.right<=W-2&&rect.top>=2&&rect.bottom<=H-2;
-   if(state.overview||forced||(!collides&&inside)){
+   if(forced||(!collides&&inside)){
     el.setAttribute("dy",normal+offset);
     if(forced){const shift=rect.left<2?2-rect.left:rect.right>W-2?W-2-rect.right:0;el.setAttribute("x",shift)}
     shown.add(d.id);occupied.push(rect);break;
    }
   }
  });
- texts.attr("opacity",d=>shown.has(d.id)?nodeLevel(d.id)===2&&d.id!==hovered?.75:1:0);
+ texts.attr("opacity",d=>shown.has(d.id)?nodeLevel(d.id)===2&&d.id!==hovered?(state.overview?.95:.75):1:0);
  nodeSel.style("opacity",d=>d.id===hovered?1:null);
 }
 if(document.fonts)document.fonts.ready.then(()=>{labelBoxes.clear();refreshLabels()});
@@ -526,6 +526,11 @@ function edgeStyle(d){
   return{color:on?(state.path?"#3DD6F5":state.sel?"#B8A6FF":"#3DD6F5"):"#26324D",width:on?1.8:1,opacity:on?.95:.55};
  }
  const a=d.source.id,b=d.target.id,primary=emphasis.primary,essential=emphasis.essential;
+ if(state.overview){
+  if(primary.has(a)&&primary.has(b))return{color:"#B8A6FF",width:2.6,opacity:1};
+  if(emphasis.links.has(d.k))return{color:"#3DD6F5",width:1.3,opacity:.55};
+  return{color:"#26324D",width:1,opacity:W<560?.08:.13};
+ }
  const main=emphasis.links.has(d.k)&&(primary.has(a)||primary.has(b));
  if(main){
   const strong=essential.has(a)||essential.has(b)||a===state.sel||b===state.sel;
@@ -537,7 +542,24 @@ function edgeStyle(d){
 function layout(){
  const small=W<560;
  NODES.forEach(n=>{n.fx=null;n.fy=null});
- if(!state||state.overview){
+ if(state&&state.overview){
+  // Free force targets compose the entry cluster; no nodes are permanently pinned.
+  const targets=new Map([["heroz",{x:W/2,y:H*.35}],["rec",{x:W/2,y:H*.52}]]);
+  emphasis.concepts.forEach((id,i)=>{
+   const angle=-Math.PI/2+i*2*Math.PI/emphasis.concepts.length;
+   targets.set(id,{x:W/2+Math.cos(angle)*W*.32,y:H*.47+Math.sin(angle)*H*.29});
+  });
+  NODES.forEach(n=>{
+   const t=targets.get(n.id);
+   if(t){n.x=t.x;n.y=t.y;n.vx=0;n.vy=0}
+  });
+  sim.force("radial",d3.forceRadial(Math.min(W,H)*.53,W/2,H/2).strength(d=>targets.has(d.id)?0:.5))
+   .force("x",d3.forceX(d=>targets.has(d.id)?targets.get(d.id).x:W/2).strength(d=>targets.has(d.id)?.85:.025))
+   .force("y",d3.forceY(d=>targets.has(d.id)?targets.get(d.id).y:H/2).strength(d=>targets.has(d.id)?.85:.025));
+  sim.force("link").strength(l=>emphasis.links.has(l.k)?.12:0);
+  sim.force("charge").strength(d=>targets.has(d.id)?-80:-45);
+  tick();
+ }else if(!state){
   sim.force("radial",null)
    .force("x",d3.forceX(W/2).strength(small?.09:.05)).force("y",d3.forceY(H/2).strength(.07));
   sim.force("link").strength(.55);
@@ -553,11 +575,16 @@ function layout(){
  }
  sim.alpha(.9).restart();
 }
+function nodeOpacity(d){
+ if(state.overview)return nodeLevel(d.id)===1?1:nodeLevel(d.id)===2?.78:W<560?.09:.13;
+ return emphasis?(nodeLevel(d.id)===1?1:nodeLevel(d.id)===2?.65:.14):state.nodes.has(d.id)?1:.2;
+}
 function size(){
  W=box.clientWidth;H=W<560?460:W<800?520:580;
  svg.attr("viewBox",`0 0 ${W} ${H}`).attr("height",H);
  if(state){
   emphasis=visualEmphasis();
+  nodeSel.interrupt().attr("opacity",nodeOpacity);
   lineSel.attr("stroke",d=>edgeStyle(d).color).attr("stroke-width",d=>edgeStyle(d).width).attr("opacity",d=>edgeStyle(d).opacity);
  }
  layout();
@@ -567,12 +594,12 @@ new ResizeObserver(()=>size()).observe(box);
 
 function compute(){
  if(active.kind==="overview"){
-  const ids=["rec","traffic","hajj","agent","dorm"].filter(id=>visible(byId[id]));
+  const ids=["rec","traffic","hajj","agent","dorm"];
   return{nodes:new Set(NODES.filter(n=>!n.secondary).map(n=>n.id)),links:new Set(),overview:true,cy:"MATCH (n)-[r]-(m)\nRETURN n, r, m",count:"full graph",list:ids.map(id=>({id,why:byId[id].sub}))};
  }
  if(active.kind==="node"){
   const n=byId[active.id],nodes=new Set([n.id]),ls=new Set();
-  adj[n.id].forEach(x=>{if(visible(byId[x.id])){nodes.add(x.id);ls.add(key(n.id,x.id))}});
+  adj[n.id].forEach(x=>{nodes.add(x.id);ls.add(key(n.id,x.id))});
   return{nodes,links:ls,sel:n.id,cy:`MATCH (n {name:"${n.label}"})-[r]-(m)\nRETURN n, r, m`,count:`${ls.size} relationships`};
  }
  if(active.kind==="preset"){
@@ -595,10 +622,8 @@ function update(){
  layout();
  const hiN=state.nodes,rel=state.rel;
  nodeSel.each(function(d){
-  const g=d3.select(this),vis=visible(d),on=emphasis?nodeLevel(d.id)<3:hiN.has(d.id),sel=state.sel===d.id;
-  g.attr("display",vis?null:"none");
-  const level=nodeLevel(d.id);
-  g.transition().duration(350).attr("opacity",emphasis?(level===1?1:level===2?.65:.14):on?1:.2);
+  const g=d3.select(this),on=emphasis?nodeLevel(d.id)<3:hiN.has(d.id),sel=state.sel===d.id;
+  g.transition().duration(350).attr("opacity",nodeOpacity);
   let r=R[d.type];if(rel&&d.type!=="skill")r=R[d.type]*(rel[d.id]?0.8+rel[d.id]*0.8:0.75);
   const onPath=state.path&&state.path.includes(d.id);
   const col=sel?"#B8A6FF":onPath?"#3DD6F5":d.type==="skill"?(on?"#8D99B3":"#5A6680"):d.type==="role"?"#B8A6FF":"#E6EDF7";
@@ -608,13 +633,11 @@ function update(){
   g.select(".halo").attr("stroke",sel?"#B8A6FF":"#3DD6F5").transition().duration(350).attr("r",r+8).attr("opacity",sel||onPath?.9:0);
   g.select("text").attr("fill",sel?"#B8A6FF":on?(d.type==="skill"?"#B4BED3":"#E6EDF7"):"#5A6680");
  });
- lineSel.attr("display",d=>visible(d.source)&&visible(d.target)?null:"none")
-  .transition().duration(350)
+ lineSel.transition().duration(350)
   .attr("stroke",d=>edgeStyle(d).color)
   .attr("stroke-width",d=>edgeStyle(d).width).attr("opacity",d=>edgeStyle(d).opacity);
  refreshLabels();
- const vn=NODES.filter(visible),ve=links.filter(l=>visible(l.source)&&visible(l.target));
- document.getElementById("meta").textContent=`graph · ${vn.length} nodes · ${ve.length} relationships`;
+ document.getElementById("meta").textContent=`graph · ${NODES.length} nodes · ${links.length} relationships`;
  document.getElementById("cypher").textContent=state.cy;
  document.getElementById("count").textContent=state.count;
  document.querySelectorAll(".q").forEach((b,i)=>b.classList.toggle("on",active.kind==="preset"&&active.i===i));
@@ -627,12 +650,12 @@ function renderDetail(){
  let id=state.sel||(state.path?state.path[state.path.length-1]:null)||(state.list&&state.list[0]&&state.list[0].id)||"rec";
  const n=byId[id],el=document.getElementById("detail");
  if(n.type==="skill"){
-  const neighbors=adj[n.id].filter(x=>visible(byId[x.id])).map(x=>byId[x.id]);
+  const neighbors=adj[n.id].map(x=>byId[x.id]);
   const used=neighbors.filter(u=>u.type!=="skill"),related=neighbors.filter(u=>u.type==="skill");
   el.innerHTML=`<div class="type">Skill</div><h3>${esc(n.label)}</h3><p>Used in ${used.length} ${used.length===1?"piece":"pieces"} of work.</p><div class="tags">${used.map(u=>`<button class="tag" data-id="${u.id}" type="button">${esc(u.label)}</button>`).join("")}</div>${related.length?`<p style="margin-top:14px">Related skills</p><div class="tags">${related.map(u=>`<button class="tag" data-id="${u.id}" type="button">${esc(u.label)}</button>`).join("")}</div>`:""}`;
  }else{
-  const sk=adj[n.id].filter(x=>byId[x.id].type==="skill"&&visible(byId[x.id]));
-  const rel=adj[n.id].filter(x=>byId[x.id].type!=="skill"&&visible(byId[x.id]));
+  const sk=adj[n.id].filter(x=>byId[x.id].type==="skill");
+  const rel=adj[n.id].filter(x=>byId[x.id].type!=="skill");
   el.innerHTML=`<div class="type">${TYPE[n.type]} · ${n.year}</div><h3>${esc(n.label)}</h3><p style="font-family:var(--mono);font-size:12.5px;color:var(--faint);margin-bottom:10px">${esc(n.sub)}</p><p>${esc(n.blurb)}</p><div class="tags">${sk.map(s=>`<button class="tag" data-id="${s.id}" type="button">${esc(SKILLS[s.id])}</button>`).join("")}${rel.map(s=>`<button class="tag" data-id="${s.id}" type="button" style="color:var(--lilac)">→ ${esc(byId[s.id].label)}</button>`).join("")}</div>${n.links?`<div class="links">${n.links.map(([t,u])=>`<a href="${u}" target="_blank" rel="noopener">${t} ↗</a>`).join("")}</div>`:""}`;
  }
  el.querySelectorAll(".tag").forEach(b=>b.onclick=()=>{active={kind:"node",id:b.dataset.id};update()});
@@ -648,7 +671,7 @@ function renderResults(){
   h=`<h4>${state.overview?"Start with":"Results"}</h4><ol>${state.list.map(r=>`<li><button type="button" data-id="${r.id}"><span>${esc(byId[r.id].label)}</span><span class="why">${esc(r.why)}</span></button></li>`).join("")}</ol>`;
  }else{
   const n=byId[state.sel];
-  const nb=adj[n.id].filter(x=>visible(byId[x.id]));
+  const nb=adj[n.id];
   h=`<h4>Connected to ${esc(n.label)}</h4><ol>${nb.slice(0,7).map(x=>`<li><button type="button" data-id="${x.id}"><span>${esc(byId[x.id].label)}</span><span class="why">${x.rel.toLowerCase().replace("_"," ")} · ${TYPE[byId[x.id].type].toLowerCase()}</span></button></li>`).join("")}</ol>`;
  }
  el.innerHTML=h;
@@ -659,16 +682,24 @@ function pathStory(p){
  return s.length?`The thread between them runs through ${s.join(" and ")}.`:"These two are directly linked.";
 }
 
+let graphScrollRequest=0;
+function scrollToGraph(){
+ cancelAnimationFrame(graphScrollRequest);
+ // Two frames let the graph state paint before moving the page.
+ graphScrollRequest=requestAnimationFrame(()=>{
+  graphScrollRequest=requestAnimationFrame(()=>{
+   const nav=document.querySelector(".topnav");
+   const inset=nav.getBoundingClientRect().bottom+12;
+   window.scrollTo({top:Math.max(0,window.scrollY+box.getBoundingClientRect().top-inset),
+    behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"instant":"smooth"});
+  });
+ });
+}
 const pre=document.getElementById("presets");
-PRESETS.forEach((p,i)=>{const b=document.createElement("button");b.className="q";b.type="button";b.innerHTML=`<span class="dot">›</span>${p.name}`;b.onclick=()=>{active={kind:"preset",i};update()};pre.appendChild(b)});
+PRESETS.forEach((p,i)=>{const b=document.createElement("button");b.className="q";b.type="button";b.innerHTML=`<span class="dot">›</span>${p.name}`;b.onclick=()=>{active={kind:"preset",i};update();scrollToGraph()};pre.appendChild(b)});
 const lens=document.getElementById("lens");
-Object.keys(LENSES).forEach(l=>{const b=document.createElement("button");b.className="chip";b.type="button";b.dataset.l=l;b.textContent=l;b.onclick=()=>{active=(active.kind==="lens"&&active.name===l)?{kind:"overview"}:{kind:"lens",name:l};update()};lens.appendChild(b)});
+Object.keys(LENSES).forEach(l=>{const b=document.createElement("button");b.className="chip";b.type="button";b.dataset.l=l;b.textContent=l.replace(/engineer/g,"Engineer");b.onclick=()=>{active=(active.kind==="lens"&&active.name===l)?{kind:"overview"}:{kind:"lens",name:l};update();scrollToGraph()};lens.appendChild(b)});
 document.getElementById("resetBtn").onclick=()=>{active={kind:"overview"};update()};
-document.getElementById("year").oninput=e=>{
- maxYear=+e.target.value;document.getElementById("yearOut").textContent="up to "+maxYear;
- if(active.kind==="node"&&!visible(byId[active.id]))active={kind:"overview"};
- update();
-};
 document.getElementById("copyBtn").onclick=async e=>{
  const b=e.currentTarget;
  try{await navigator.clipboard.writeText("layalcanoe12@gmail.com");b.textContent="Copied"}
@@ -682,7 +713,6 @@ document.querySelectorAll("[data-copy]").forEach(b=>b.onclick=async()=>{
 });
 document.querySelectorAll("[data-focus]").forEach(b=>b.addEventListener("click",()=>{
  const id=b.dataset.focus;if(!byId[id])return;
- if(!visible(byId[id])){maxYear=2026;document.getElementById("year").value=2026;document.getElementById("yearOut").textContent="up to 2026"}
  active={kind:"node",id};update();
  document.getElementById("lab").scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});
 }));
