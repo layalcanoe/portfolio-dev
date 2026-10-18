@@ -9,6 +9,7 @@
 <meta property="og:title" content="Layal Canoe · AI Engineer">
 <meta property="og:description" content="I build AI systems you can trust. Grounded in real data, explainable by design.">
 <meta property="og:url" content="https://layalcanoe.github.io/">
+<link rel="canonical" href="https://layalcanoe.github.io/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230A0F1C'/%3E%3Crect x='10' y='10' width='12' height='12' transform='rotate(45 16 16)' fill='none' stroke='%23B8A6FF' stroke-width='2.4'/%3E%3C/svg%3E">
 <title>Layal Canoe Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,8 +26,9 @@
 <nav class="topnav" aria-label="Main">
  <div class="wrap">
   <a class="brand" href="#top"><i aria-hidden="true"></i>Layal Canoe</a>
-  <div class="navlinks">
-   <a href="#about">About</a><a href="#lab">Graph</a><a href="#work">Work</a><a href="#experience">Experience</a><a href="#research">Research</a><a href="#contact">Contact</a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="sectionNav" hidden>Menu</button>
+  <div class="navlinks" id="sectionNav">
+   <a href="#about">About</a><a href="#lab">Graph</a><a href="#work">Work</a><a href="#experience">Experience</a><a href="#research">Research</a><a href="#toolkit">Skills</a><a href="#education">Education</a><a href="#contact">Contact</a>
   </div>
   <a class="navcv" href="Layal_Canoe_CV.pdf" target="_blank" rel="noopener noreferrer">CV ↗</a>
  </div>
@@ -55,10 +57,10 @@
    <span class="email"><span id="emailText">layalcanoe12@gmail.com</span><button class="copy" id="copyBtn" type="button">Copy</button></span>
   </div>
   <div class="stats">
-   <div class="stat"><div class="v">3.97<small>/4</small></div><div class="k">GPA · Dean's List ×3</div></div>
-   <div class="stat"><div class="v">80.6<small>×</small></div><div class="k">Throughput gain</div></div>
-   <div class="stat"><div class="v">95<small>%</small></div><div class="k">IoT IDS · RF accuracy</div></div>
-   <div class="stat"><div class="v">IEEE</div><div class="k">Published · SCC 2025</div></div>
+   <div class="stat"><div class="v">3.97<small>/4</small></div><div class="k">GPA · DEAN'S LIST ×3</div></div>
+   <div class="stat"><div class="v">80.6<small>×</small></div><div class="k">FASTER BIG-DATA PROCESSING</div></div>
+   <div class="stat"><div class="v">95<small>%</small></div><div class="k">CYBERATTACK DETECTION ACCURACY</div></div>
+   <div class="stat"><div class="v">IEEE</div><div class="k">PEER-REVIEWED · SCC 2025</div></div>
   </div>
  </div>
 </header>
@@ -123,100 +125,123 @@
 
 <section class="section wrap" id="work">
  <div class="shead">
-  <div class="eyebrow">MATCH (p:Project {featured:true}) RETURN p</div>
-  <h2>Selected work</h2>
-  <p>Five projects that show how I build: grounded in real data, measured, and designed to explain their own decisions.</p>
+  <div class="eyebrow">SELECTED WORK</div>
+  <h2>Projects that turned ideas into working systems.</h2>
+  <p>A few of the systems I’m most proud of — from multi-agent AI and grounded assistants to machine learning, big-data pipelines, and full-stack software.</p>
  </div>
  <div class="work">
   <article class="wcard wide">
-   <div style="display:grid;gap:14px">
-    <div class="meta"><b>Research project</b><span>Multi-agent systems · Big data · NLP</span></div>
-    <h3>Multi-Agent Edge Intelligence for Traffic Coordination</h3>
-    <p>Autonomous traffic agents across Jeddah intersections that communicate in natural language instead of raw signals, reasoning with RAG and a knowledge graph. Underneath, a distributed real-time pipeline on Apache Kafka, Hadoop HDFS, and Spark / PySpark with Spark MLlib, visualized through a Streamlit dashboard.</p>
-    <div class="tags"><span class="tag">Kafka</span><span class="tag">Hadoop HDFS</span><span class="tag">PySpark</span><span class="tag">Spark MLlib</span><span class="tag">RAG</span><span class="tag">Knowledge Graphs</span><span class="tag">LLMs</span><span class="tag">Streamlit</span></div>
-    <div class="links"><a href="https://github.com/layalcanoe/edge-native-agentic-nlp" target="_blank" rel="noopener">Agents code ↗</a><a href="https://github.com/layalcanoe/CS4074_TrafficBigData" target="_blank" rel="noopener">Pipeline code ↗</a><a href="https://www.researchgate.net/publication/399393117_Multi-Agent_Edge_AI_for_Intelligent_Traffic_Coordination" target="_blank" rel="noopener">Paper ↗</a></div>
-    <button class="graphlink" type="button" data-focus="traffic">› show in graph</button>
+   <div class="work-details">
+    <div class="meta"><b>Senior project</b><span>Multi-Agent AI Policy Simulator</span></div>
+    <h3>AgentNation</h3>
+    <p>Built a decision-support platform where specialized AI agents work together to evaluate policy ideas, compare alternatives, identify risks, and surface conflicts before decisions are made.</p>
    </div>
    <div class="kv">
-    <div><div class="v">80.6<small>×</small></div><div class="k">Throughput gain</div></div>
-    <div><div class="v">13,791</div><div class="k">Records / sec</div></div>
-    <div><div class="v">1M</div><div class="k">Sensor records</div></div>
-    <div><div class="v">100<small>%</small></div><div class="k">Severity accuracy, clean</div></div>
-    <div><div class="v">84.9<small>%</small></div><div class="k">Under 20% dropout</div></div>
-    <div><div class="v">171</div><div class="k">Records / sec before</div></div>
+    <div><div class="v">4</div><div class="k">Layers of collaborating agents</div></div>
+    <div><div class="v">22</div><div class="k">Sources analyzed</div></div>
+    <div><div class="v">7</div><div class="k">Governance / capability gaps identified</div></div>
+   </div>
+   <div class="work-details work-technical">
+    <p>The four-layer architecture combines multi-agent orchestration, RAG, knowledge-grounded reasoning, deterministic scoring, and human-in-the-loop decisions. A working prototype connects policy-impact and workforce-intelligence services.</p>
+    <div class="tags"><span class="tag">Multi-Agent AI</span><span class="tag">RAG</span><span class="tag">Knowledge Graphs</span><span class="tag">LLMs</span><span class="tag">Decision Support</span></div>
+    <button class="graphlink" type="button" data-focus="agent">› show in graph</button>
    </div>
   </article>
 
   <article class="wcard">
-   <div class="meta"><b>Deployed</b><span>RAG · Gemini · Node.js</span></div>
+   <div class="meta"><b>Research project</b><span>Intelligent Traffic Coordination</span></div>
+   <h3>Multi-Agent Edge Intelligence</h3>
+   <p>Built an AI system whose specialized agents coordinate responses to road conditions. I later added a big-data pipeline to test scale and resilience to unreliable sensor data.</p>
+   <div class="kv">
+    <div><div class="v">1M</div><div class="k">Traffic records tested</div></div>
+    <div><div class="v">80.6<small>×</small></div><div class="k">Higher processing throughput</div></div>
+    <div><div class="v">84.9<small>%</small></div><div class="k">Classification accuracy with 20% sensor-field dropout</div></div>
+   </div>
+   <p>Started in Advanced AI/NLP with Vehicle, Incident Detection, and Traffic Light agents using RAG and knowledge-graph reasoning. Later extended in Big Data with Kafka, HDFS, Spark/PySpark, and Spark MLlib.</p>
+   <p class="work-note">Single-node, pseudo-distributed benchmark: 171 → 13,791 records/sec from 10K → 1M records.</p>
+   <div class="tags"><span class="tag">Multi-Agent AI</span><span class="tag">RAG</span><span class="tag">Knowledge Graphs</span><span class="tag">Kafka</span><span class="tag">Spark / PySpark</span><span class="tag">HDFS</span></div>
+   <div class="links"><a href="https://github.com/layalcanoe/edge-native-agentic-nlp" target="_blank" rel="noopener noreferrer">Agents code ↗</a><a href="https://github.com/layalcanoe/CS4074_TrafficBigData" target="_blank" rel="noopener noreferrer">Pipeline code ↗</a><a href="https://www.researchgate.net/publication/399393117_Multi-Agent_Edge_AI_for_Intelligent_Traffic_Coordination" target="_blank" rel="noopener noreferrer">Paper ↗</a></div>
+   <button class="graphlink" type="button" data-focus="traffic">› show in graph</button>
+  </article>
+
+  <article class="wcard">
+   <div class="meta"><b>Deployed · Collaborative project</b><span>Grounded AI Pilgrimage Assistant</span></div>
    <h3>Hajj Buddy AI</h3>
-   <p>A retrieval-augmented assistant for Hajj and Umrah pilgrims. It answers only from verified Islamic sources, which prevents hallucinated guidance on questions where accuracy and respect matter most. Live as a web app with a chat interface.</p>
-   <div class="links"><a href="https://hajj-buddy-ai-cet1.onrender.com" target="_blank" rel="noopener">Live app ↗</a><a href="https://github.com/layalcanoe/hajj-buddy-ai" target="_blank" rel="noopener">Code ↗</a></div>
+   <p>Built an AI assistant that helps pilgrims navigate Hajj and Umrah using a curated Islamic knowledge base, grounding answers in retrieved sources rather than only the language model’s memory.</p>
+   <p>The deployed app pairs a responsive chat interface with a Node.js / Express backend. Local MiniLM embeddings power vector retrieval before Gemini responds; the assistant is designed to decline when supporting context is insufficient.</p>
+   <p class="work-note"><strong>My role:</strong> frontend and chat experience, frontend/backend integration, RAG-to-model integration, and end-to-end debugging and testing.</p>
+   <div class="tags"><span class="tag">RAG</span><span class="tag">Gemini</span><span class="tag">Node.js</span><span class="tag">MiniLM</span><span class="tag">Vector Search</span></div>
+   <div class="links"><a href="https://hajj-buddy-ai-cet1.onrender.com/" target="_blank" rel="noopener noreferrer">Live demo ↗</a><a href="https://github.com/layalcanoe/hajj-buddy-ai" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div>
    <button class="graphlink" type="button" data-focus="hajj">› show in graph</button>
   </article>
 
   <article class="wcard">
-   <div class="meta"><b>Senior project</b><span>Multi-agent systems · Policy</span></div>
-   <h3>AgentNation · AI Policy Simulator</h3>
-   <p>A four-layer multi-agent architecture for cross-ministry policy simulation, with a working prototype linking policy-impact and workforce-intelligence services. I modeled workforce supply and demand gaps and synthesized 22 sources to identify 7 governance capability gaps that shaped the system requirements.</p>
-   <div class="kv" style="grid-template-columns:repeat(3,minmax(0,1fr))"><div><div class="v">4</div><div class="k">Agent layers</div></div><div><div class="v">22</div><div class="k">Sources synthesized</div></div><div><div class="v">7</div><div class="k">Capability gaps</div></div></div>
-   <button class="graphlink" type="button" data-focus="agent">› show in graph</button>
-  </article>
-
-  <article class="wcard">
-   <div class="meta"><b>BMC 2026 Hackathon</b><span>Computer vision · RAG · KG</span></div>
-   <h3>dormOra · AI Dermatology Assistant</h3>
-   <p>An end-to-end AI prototype that analyzes user-submitted skin images across acne, pigmentation, redness, and texture, then reasons over a knowledge graph with retrieval-augmented generation to explain what it sees.</p>
-   <div class="tags"><span class="tag">Acne</span><span class="tag">Pigmentation</span><span class="tag">Redness</span><span class="tag">Texture</span></div>
-   <button class="graphlink" type="button" data-focus="dorm">› show in graph</button>
-  </article>
-
-  <article class="wcard">
-   <div class="meta"><b>Machine learning</b><span>Cybersecurity · IoT</span></div>
-   <h3>IoT Intrusion Detection System</h3>
-   <p>A complete ML pipeline for cyberattack detection on the CIC IoT 2023 dataset, trained on about 200,000 samples and compared across four model families.</p>
-   <div class="bars" role="img" aria-label="Accuracy: Random Forest 95%, XGBoost 92%, MLP 84.7%, CNN 74.9%">
-    <div class="bar best"><span>RF</span><span class="t"><i style="width:95%"></i></span><span>95%</span></div>
-    <div class="bar"><span>XGBoost</span><span class="t"><i style="width:92%"></i></span><span>92%</span></div>
-    <div class="bar"><span>MLP</span><span class="t"><i style="width:84.7%"></i></span><span>84.7%</span></div>
-    <div class="bar"><span>CNN</span><span class="t"><i style="width:74.9%"></i></span><span>74.9%</span></div>
+   <div class="meta"><b>Machine learning</b><span>Machine Learning Intrusion Detection</span></div>
+   <h3>IoT Cyber Attack Detection</h3>
+   <p>Built a machine-learning intrusion detection system that learns patterns in IoT network traffic to distinguish normal activity from cyberattacks.</p>
+   <div class="kv work-proof-pair">
+    <div><div class="v">95<small>%</small></div><div class="k">Best attack-detection accuracy · Random Forest</div></div>
+    <div><div class="v">5</div><div class="k">ML models compared</div></div>
    </div>
-   <div class="links"><a href="https://github.com/CelineHarakee/IoT-Cyber-Attack-Detection-Using-ML" target="_blank" rel="noopener">Code ↗</a><a href="https://www.researchgate.net/publication/391458631_IoT_Cyber_Attack_Detection_Using_Machine_Learning" target="_blank" rel="noopener">Paper ↗</a></div>
+   <p>On CIC IoT 2023 data, the pipeline covers cleaning, missing values, normalization, SMOTE balancing, and PCA. Random Forest outperformed XGBoost (92%), Linear SVM, MLP, and 1D CNN; tree-based ensembles suited this tabular data better than the tested neural approaches.</p>
+   <p class="work-note">Evaluated with accuracy, precision, recall, F1-score, and confusion matrices to compare model tradeoffs.</p>
+   <div class="tags"><span class="tag">Machine Learning</span><span class="tag">Random Forest</span><span class="tag">XGBoost</span><span class="tag">SMOTE</span><span class="tag">PCA</span></div>
+   <div class="links"><a href="https://github.com/CelineHarakee/IoT-Cyber-Attack-Detection-Using-ML" target="_blank" rel="noopener noreferrer">Code ↗</a><a href="https://www.researchgate.net/publication/391458631_IoT_Cyber_Attack_Detection_Using_Machine_Learning" target="_blank" rel="noopener noreferrer">Paper ↗</a></div>
+  </article>
+
+  <article class="wcard">
+   <div class="meta"><b>Web development</b><span>Full-Stack Music Discovery Platform</span></div>
+   <h3>Music Map</h3>
+   <p>Built a 22-page interactive web platform for exploring music cultures around the world. Users discover artists and songs by country, listen to music, search content, and test their knowledge through quizzes.</p>
+   <div class="kv work-proof-pair">
+    <div><div class="v">22</div><div class="k">Interactive web pages</div></div>
+    <div><div class="v">Full CRUD</div><div class="k">Database-backed content management</div></div>
+   </div>
+   <p>A PHP / SQL administration workflow supports creating, searching, updating, and deleting countries, artists, and songs, backed by a database of artists, countries, songs, and users.</p>
+   <div class="tags"><span class="tag">JavaScript</span><span class="tag">PHP</span><span class="tag">SQL</span><span class="tag">HTML / CSS</span><span class="tag">CRUD</span></div>
   </article>
  </div>
 </section>
 
 <section class="section wrap" id="experience">
  <div class="shead">
-  <div class="eyebrow">MATCH (:Layal)-[:WORKED_AT]->(c) RETURN c</div>
-  <h2>Experience</h2>
+  <div class="eyebrow">EXPERIENCE</div>
+  <h2>Where I've put the systems thinking into practice.</h2>
+  <p>Building AI, backend, and automation systems in real team environments.</p>
  </div>
  <div class="xp">
   <div class="role">
-   <div class="when"><b>Jun 2026 – Present</b><span>Jeddah, Saudi Arabia</span></div>
+   <div class="when">
+    <h3 class="experience-company">Heroz</h3>
+    <span class="experience-current">Current</span>
+    <b>Jun 2026 – Present</b>
+    <span>Jeddah, Saudi Arabia</span>
+   </div>
    <div>
-    <h3>AI Intern</h3>
-    <div class="org">Heroz</div>
+    <h4 class="experience-title">AI Intern</h4>
+    <p class="experience-takeaway">Building AI systems that help turn children's activity data into more relevant, explainable recommendations.</p>
     <ul>
-     <li>Designing and implementing a hybrid recommendation system for personalized children's activity discovery, using interests, preferences, developmental goals, behavioral signals, exploration, and session suitability.</li>
-     <li>Designed and documented the platform's MongoDB operational data model and Neo4j knowledge graph, mapping children, activities, interests, goals, learning outcomes, and behavioral evidence into traversable relationships.</li>
-     <li>Built graph-building and multi-hop traversal logic in JavaScript, Node.js, Neo4j, and Cypher that turns operational data into recommendation-ready graph structures.</li>
-     <li>Designed a 6-factor weighted scoring model with missing-data normalization, eligibility filtering, ranking logic, and explainable evidence for every recommendation.</li>
+     <li>Designed backend and data foundations for a hybrid recommendation system, connecting operational data in MongoDB with a Neo4j knowledge graph to support more contextual activity recommendations.</li>
+     <li>Built graph-processing and traversal components with JavaScript, Node.js, Neo4j, and Cypher to support candidate discovery and explainable recommendation logic.</li>
+     <li>Developed AI-powered automation workflows connecting data, generated content, delivery services, and database updates to reduce repetitive manual steps in outreach workflows.</li>
     </ul>
-    <div class="tags"><span class="tag">Neo4j</span><span class="tag">Cypher</span><span class="tag">MongoDB</span><span class="tag">Node.js</span><span class="tag">Recommender systems</span><button class="tag" type="button" data-focus="rec" style="color:var(--lilac)">› show in graph</button></div>
+    <div class="tags"><span class="tag">Recommendation Systems</span><span class="tag">Knowledge Graphs</span><span class="tag">MongoDB</span><span class="tag">Neo4j</span><span class="tag">Node.js</span><span class="tag">AI Automation</span><button class="tag" type="button" data-focus="rec" style="color:var(--lilac)">› show in graph</button></div>
    </div>
   </div>
   <div class="role">
-   <div class="when"><b>Summer 2025</b><span>Jeddah, Saudi Arabia</span></div>
+   <div class="when">
+    <h3 class="experience-company">Breifiction</h3>
+    <b>Summer 2025</b>
+    <span>Jeddah, Saudi Arabia</span>
+   </div>
    <div>
-    <h3>Back-End Developer Intern</h3>
-    <div class="org">Breifiction · Marketing agency</div>
+    <h4 class="experience-title">Back-End Developer Intern</h4>
+    <p class="experience-takeaway">Helped build the backend for an AI-powered customer messaging assistant that could answer common shipment and order questions using real client data.</p>
     <ul>
-     <li>Built 5+ REST API endpoints powering a personalized AI assistant for customer messaging, automating responses to shipment-tracking and order-status questions.</li>
-     <li>Integrated the assistant with client databases and designed SQL and NoSQL schemas for real-time, context-aware data retrieval and AI workflows.</li>
-     <li>Implemented authentication and backend security practices across production-oriented services.</li>
+     <li>Developed 5+ REST API endpoints connecting the assistant with client databases, allowing responses to use current order and shipment information rather than generic AI-generated answers.</li>
+     <li>Worked across SQL/NoSQL data, authentication, and context retrieval to support secure, real-time backend workflows for the assistant.</li>
     </ul>
-    <div class="tags"><span class="tag">REST APIs</span><span class="tag">SQL</span><span class="tag">NoSQL</span><span class="tag">Authentication</span><button class="tag" type="button" data-focus="brief" style="color:var(--lilac)">› show in graph</button></div>
+    <div class="tags"><span class="tag">REST APIs</span><span class="tag">Node.js</span><span class="tag">SQL / NoSQL</span><span class="tag">AI Integration</span><span class="tag">Authentication</span><button class="tag" type="button" data-focus="brief" style="color:var(--lilac)">› show in graph</button></div>
    </div>
   </div>
  </div>
@@ -231,24 +256,21 @@
   <div>
    <div class="badge">Peer-reviewed · IEEE</div>
    <h3>Integrating AI and Cybersecurity in Powerline Communication Systems</h3>
-   <p>Investigates the cybersecurity challenges that AI and cloud-based architectures introduce into powerline communication for smart-grid and IoT infrastructure, and evaluates AI-driven anomaly detection and post-quantum cryptography as defenses.</p>
-   <div class="links"><a href="https://www.researchgate.net/publication/391596817_Integrating_AI_and_Cybersecurity_in_Powerline_Connection" target="_blank" rel="noopener">Read the paper ↗</a></div>
+   <p>Explores how adding AI and cloud-connected systems to powerline communication can create new cybersecurity risks in smart-grid and IoT infrastructure — and how AI-based anomaly detection and post-quantum security could help defend against them.</p>
+   <div class="links"><a href="https://www.researchgate.net/publication/391596817_Integrating_AI_and_Cybersecurity_in_Powerline_Connection" target="_blank" rel="noopener noreferrer">Read the paper ↗</a></div>
   </div>
   <ul>
-   <li><span>Venue</span>IEEE SCC 2025 Conference, Sousse, Tunisia</li>
-   <li><span>Presentation</span>Selected for oral presentation, Nov 2025</li>
+   <li><span>Venue</span>IEEE SCC 2025 · Sousse, Tunisia</li>
+   <li><span>Status</span>Accepted &amp; presented · Nov 2025</li>
    <li><span>Funding</span>Effat University Deanship of Graduate Studies and Research</li>
   </ul>
  </div>
- <p class="sublabel">More papers and technical reports</p>
+ <p class="sublabel">Selected research &amp; technical reports</p>
  <div class="papers">
-  <div class="paper"><span class="y">2025</span><div><div class="t">Matrix Completion for Recommender Systems: A Linear Algebra Perspective (Netflix Problem)</div><div class="s">Recommender systems · Linear algebra</div></div><a href="https://www.researchgate.net/publication/399392478_Matrix_Completion_for_Recommender_Systems_A_Linear_Algebra_Perspective_Netflix_Problem" target="_blank" rel="noopener">Read ↗</a></div>
-  <div class="paper"><span class="y">2025</span><div><div class="t">Enhancing Powerline Communication: Research and Application Design</div><div class="s">IoT networks · Smart homes · UI/UX</div></div><a href="https://www.researchgate.net/publication/391217469_AI-Powered_Powerline_Communication_PLC" target="_blank" rel="noopener">Read ↗</a></div>
-  <div class="paper"><span class="y">2025</span><div><div class="t">Numerical Solutions to an Initial Value Problem Using Euler, Taylor, and Runge-Kutta 6th Order Methods</div><div class="s">Numerical analysis · Python</div></div><a href="https://www.researchgate.net/publication/391596562_Numerical_Solutions_to_an_Initial_Value_Problem_Using_Euler_Taylor_and_Runge-Kutta_6th_Order_Methods" target="_blank" rel="noopener">Read ↗</a></div>
-  <div class="paper"><span class="y">2024</span><div><div class="t">AI-Driven Medical Diagnostics: Advancing Early Disease Detection Through Intelligent Imaging</div><div class="s">Computer vision · Deep learning · Healthcare</div></div><a href="https://www.researchgate.net/publication/387602712_Exploring_AI_in_Medical_Imaging_and_Diagnosis" target="_blank" rel="noopener">Read ↗</a></div>
-  <div class="paper"><span class="y">2024</span><div><div class="t">The Quantum Frontier: Navigating the Future of Cybersecurity in the Age of Quantum Computing</div><div class="s">Quantum computing · Cryptography</div></div><a href="https://www.researchgate.net/publication/387533298_The_Quantum_Frontier_Navigating_the_Future_of_Cybersecurity_in_the_Age_of_Quantum_Computing" target="_blank" rel="noopener">Read ↗</a></div>
-  <div class="paper"><span class="y">2024</span><div><div class="t">Ethical Implications of Computer Implants: Privacy, Autonomy, and Regulatory Challenges</div><div class="s">Ethics · Privacy · Bioelectronics</div></div><a href="https://www.researchgate.net/publication/391596410_Ethical_Implications_of_Computer_Implants_Privacy_Autonomy_and_Regulatory_Challenges" target="_blank" rel="noopener">Read ↗</a></div>
-  <div class="paper"><span class="y">2024</span><div><div class="t">Revolutionizing Round Robin: Dynamic Time Quantum Scheduling for CPU Efficiency</div><div class="s">Operating systems · CPU scheduling</div></div><a href="https://www.researchgate.net/publication/380971608_Revolutionizing_Round_Robin_Dynamic_Time_Quantum_Scheduling_for_CPU_Efficiency" target="_blank" rel="noopener">Read ↗</a></div>
+  <div class="paper"><span class="y">2025</span><div><div class="t">Matrix Completion for Recommender Systems: A Linear Algebra Perspective (Netflix Problem)</div><div class="s">Recommendation systems · Linear algebra · Missing-data prediction</div></div><a href="https://www.researchgate.net/publication/399392478_Matrix_Completion_for_Recommender_Systems_A_Linear_Algebra_Perspective_Netflix_Problem" target="_blank" rel="noopener noreferrer">Read ↗</a></div>
+  <div class="paper"><span class="y">2025</span><div><div class="t">Numerical Solutions to an Initial Value Problem Using Euler, Taylor, and Runge-Kutta 6th Order Methods</div><div class="s">Numerical computing · Differential equations · Python</div></div><a href="https://www.researchgate.net/publication/391596562_Numerical_Solutions_to_an_Initial_Value_Problem_Using_Euler_Taylor_and_Runge-Kutta_6th_Order_Methods" target="_blank" rel="noopener noreferrer">Read ↗</a></div>
+  <div class="paper"><span class="y">2024</span><div><div class="t">AI-Driven Medical Diagnostics: Advancing Early Disease Detection Through Intelligent Imaging</div><div class="s">Computer vision · Deep learning · Medical imaging</div></div><a href="https://www.researchgate.net/publication/387602712_Exploring_AI_in_Medical_Imaging_and_Diagnosis" target="_blank" rel="noopener noreferrer">Read ↗</a></div>
+  <div class="paper"><span class="y">2024</span><div><div class="t">Revolutionizing Round Robin: Dynamic Time Quantum Scheduling for CPU Efficiency</div><div class="s">Algorithms · Operating systems · CPU scheduling</div></div><a href="https://www.researchgate.net/publication/380971608_Revolutionizing_Round_Robin_Dynamic_Time_Quantum_Scheduling_for_CPU_Efficiency" target="_blank" rel="noopener noreferrer">Read ↗</a></div>
  </div>
 </section>
 
@@ -258,10 +280,11 @@
   <h2>Toolkit</h2>
  </div>
  <div class="toolkit">
-  <div class="tk"><h3>AI and machine learning</h3><div class="chips"><button class="sk" type="button" data-focus="ml">Machine Learning</button><button class="sk" type="button" data-focus="dl">Deep Learning</button><button class="sk" type="button" data-focus="rag">RAG</button><button class="sk" type="button" data-focus="llm">LLM Integration</button><button class="sk" type="button" data-focus="nlp">NLP</button><button class="sk" type="button" data-focus="mas">AI Agents</button><button class="sk" type="button" data-focus="kg">Knowledge Graphs</button><button class="sk" type="button" data-focus="cv">Computer Vision</button></div></div>
-  <div class="tk"><h3>Data and big data</h3><div class="chips"><button class="sk" type="button" data-focus="mongo">MongoDB</button><button class="sk" type="button" data-focus="neo4j">Neo4j</button><button class="sk" type="button" data-focus="spark">Apache Spark / PySpark</button><button class="sk" type="button" data-focus="kafka">Kafka</button><span class="sk">Hadoop HDFS</span><span class="sk">Spark MLlib</span><span class="sk">Pandas</span><span class="sk">NumPy</span></div></div>
-  <div class="tk"><h3>Programming</h3><div class="chips"><button class="sk" type="button" data-focus="py">Python</button><button class="sk" type="button" data-focus="js">JavaScript</button><span class="sk">Java</span><span class="sk">C++</span><button class="sk" type="button" data-focus="sql">SQL</button></div></div>
-  <div class="tk"><h3>Backend and tools</h3><div class="chips"><button class="sk" type="button" data-focus="rest">REST APIs</button><span class="sk">SQL / NoSQL databases</span><button class="sk" type="button" data-focus="node">Node.js</button><span class="sk">n8n</span><span class="sk">Git / GitHub</span><button class="sk" type="button" data-focus="docker">Docker</button><span class="sk">Linux</span><span class="sk">Postman</span><span class="sk">Streamlit</span></div></div>
+  <div class="tk"><h3>AI Systems &amp; Orchestration</h3><div class="chips"><button class="sk" type="button" data-focus="mas">Multi-Agent Systems</button><button class="sk" type="button" data-focus="rag">RAG</button><button class="sk" type="button" data-focus="llm">LLM Integration</button><button class="sk" type="button" data-focus="kg">Knowledge Graphs</button><button class="sk" type="button" data-focus="automation">AI Automation</button><span class="sk">n8n</span></div></div>
+  <div class="tk"><h3>Machine Learning &amp; AI</h3><div class="chips"><button class="sk" type="button" data-focus="ml">Machine Learning</button><button class="sk" type="button" data-focus="dl">Deep Learning</button><button class="sk" type="button" data-focus="nlp">NLP</button><button class="sk" type="button" data-focus="cv">Computer Vision</button></div></div>
+  <div class="tk"><h3>Data &amp; Knowledge Infrastructure</h3><div class="chips"><button class="sk" type="button" data-focus="mongo">MongoDB</button><button class="sk" type="button" data-focus="neo4j">Neo4j</button><button class="sk" type="button" data-focus="spark">Apache Spark / PySpark</button><button class="sk" type="button" data-focus="kafka">Kafka</button><span class="sk">Hadoop HDFS</span><span class="sk">Spark MLlib</span><span class="sk">Pandas</span><span class="sk">NumPy</span></div></div>
+  <div class="tk"><h3>Backend &amp; Engineering</h3><div class="chips"><button class="sk" type="button" data-focus="rest">REST APIs</button><button class="sk" type="button" data-focus="node">Node.js</button><span class="sk">SQL / NoSQL Databases</span><button class="sk" type="button" data-focus="docker">Docker</button><span class="sk">Linux</span><span class="sk">Git / GitHub</span><span class="sk">Postman</span><span class="sk">Streamlit</span></div></div>
+  <div class="tk"><h3>Programming</h3><div class="chips"><button class="sk" type="button" data-focus="py">Python</button><button class="sk" type="button" data-focus="js">JavaScript</button><button class="sk" type="button" data-focus="sql">SQL</button><span class="sk">Java</span><span class="sk">C++</span><span class="sk">PHP</span><button class="sk" type="button" data-focus="neo4j">Cypher</button><span class="sk">HTML / CSS</span></div></div>
  </div>
  <div class="tknote"><i></i>Skills with a dot open in the graph, showing the work that uses them.</div>
 </section>
@@ -274,19 +297,20 @@
  <div class="edu">
   <div class="ecol">
    <p class="sublabel">Education</p>
-   <div class="eitem"><span class="t">Effat University</span><span class="s">Bachelor of Computer Science, Artificial Intelligence</span><span class="d">Jeddah · 2022 – 2026 (expected)</span></div>
+   <div class="eitem"><span class="t">Effat University</span><span class="s">Bachelor of Computer Science, Artificial Intelligence</span><span class="d">Jeddah · 2022–2027</span><span class="d">Expected graduation · Jan 2027</span></div>
    <div class="eitem"><span class="d">GPA</span><span class="big">3.97<span style="font-size:.5em;color:var(--faint)"> / 4.00</span></span></div>
   </div>
   <div class="ecol">
    <p class="sublabel">Honors and awards</p>
-   <div class="eitem"><span class="t">KAUST Academy AI Specialization</span><span class="s">Stage 2 selection, national competitive assessment</span><span class="d">2025</span></div>
-   <div class="eitem"><span class="t">Queen Effat Award Nomination</span><span class="d">2024 – 2025</span></div>
-   <div class="eitem"><span class="t">Dean's List</span><span class="d">2022 – 2023 · 2023 – 2024</span></div>
+   <div class="eitem"><span class="t">Dean's List · 3 consecutive years</span><span class="d">2022–23 · 2023–24 · 2024–25</span></div>
+   <div class="eitem"><span class="t">DGRS Research Funding Award</span><span class="s">Effat University</span><span class="d">Research funding</span></div>
+   <div class="eitem"><span class="t">KAUST Academy AI Specialization</span><span class="s">Stage 2 selection · National competitive assessment</span><span class="d">2025</span></div>
+   <div class="eitem"><span class="t">Queen Effat Award Nomination</span><span class="d">2024–25</span></div>
   </div>
   <div class="ecol">
    <p class="sublabel">Certifications</p>
-   <div class="eitem"><span class="t">Neural Networks and Deep Learning</span><span class="s">DeepLearning.AI · Coursera</span><span class="d">2025 · <a href="https://coursera.org/share/6b913c2d6eaa47cc83d6eddbb43ecb33" target="_blank" rel="noopener">Certificate ↗</a></span></div>
-   <div class="eitem"><span class="t">Artificial Intelligence Specialization</span><span class="s">KAUST Academy × Coursera</span><span class="d">2025 · <a href="https://coursera.org/share/344854075c3c8cd303940c75167ded4f" target="_blank" rel="noopener">Probability and Statistics ↗</a> · <a href="https://coursera.org/share/127cafd1fd049cb453da5b8717161f54" target="_blank" rel="noopener">Linear Algebra ↗</a> · <a href="https://coursera.org/share/6d3c2e20f225f923f24c75f0ec4f19ac" target="_blank" rel="noopener">Calculus ↗</a></span></div>
+   <div class="eitem"><span class="t">Neural Networks and Deep Learning</span><span class="s">DeepLearning.AI · Coursera</span><span class="d">2025 · <a href="https://coursera.org/share/6b913c2d6eaa47cc83d6eddbb43ecb33" target="_blank" rel="noopener noreferrer">Certificate ↗</a></span></div>
+   <div class="eitem"><span class="t">Artificial Intelligence Specialization</span><span class="s">KAUST Academy × Coursera</span><span class="d">2025 · <a href="https://coursera.org/share/344854075c3c8cd303940c75167ded4f" target="_blank" rel="noopener noreferrer">Probability and Statistics ↗</a> · <a href="https://coursera.org/share/127cafd1fd049cb453da5b8717161f54" target="_blank" rel="noopener noreferrer">Linear Algebra ↗</a> · <a href="https://coursera.org/share/6d3c2e20f225f923f24c75f0ec4f19ac" target="_blank" rel="noopener noreferrer">Calculus ↗</a></span></div>
   </div>
  </div>
 </section>
@@ -294,12 +318,12 @@
 <section class="contact wrap" id="contact">
  <div class="eyebrow">CREATE (:Layal)-[:WORKS_WITH]->(:You)</div>
  <h2 style="margin-top:14px">Let's build something people can <em>trust</em>.</h2>
- <p style="color:var(--muted);margin:18px 0 0;max-width:56ch">Open to full-time roles from 2026. The fastest way to reach me is email.</p>
+ <p style="color:var(--muted);margin:18px 0 0;max-width:56ch">Open to opportunities across AI engineering, intelligent systems, and backend development. The fastest way to reach me is email.</p>
  <div class="clist">
-  <div class="citem"><span class="k">Email</span><div class="row"><span class="v" id="emailText2" style="user-select:all">layalcanoe12@gmail.com</span><button class="copy" type="button" data-copy="layalcanoe12@gmail.com" data-target="emailText2">Copy</button></div></div>
-  <div class="citem"><span class="k">Phone · WhatsApp</span><div class="row"><span class="v" id="phoneText" style="user-select:all">+966 50 439 6673</span><button class="copy" type="button" data-copy="+966504396673" data-target="phoneText">Copy</button></div></div>
-  <div class="citem"><span class="k">LinkedIn</span><a class="v" href="https://www.linkedin.com/in/layal-canoe-a213792ab/" target="_blank" rel="noopener">layal-canoe ↗</a></div>
-  <div class="citem"><span class="k">GitHub</span><a class="v" href="https://github.com/layalcanoe" target="_blank" rel="noopener">layalcanoe ↗</a></div>
+  <div class="citem"><span class="k">Email</span><div class="row"><a class="v" id="emailText2" style="user-select:all" href="mailto:layalcanoe12@gmail.com?subject=Portfolio%20%E2%80%94%20Opportunity">layalcanoe12@gmail.com</a></div><a class="contact-action" href="mailto:layalcanoe12@gmail.com?subject=Portfolio%20%E2%80%94%20Opportunity">Email me ↗</a></div>
+  <div class="citem"><span class="k">Phone · WhatsApp</span><div class="row"><a class="v" id="phoneText" style="user-select:all" href="https://wa.me/966504396673?text=Hi%20Layal%2C%20I%20came%20across%20your%20portfolio%20and%20would%20like%20to%20connect%20regarding%20an%20opportunity." target="_blank" rel="noopener noreferrer">+966 50 439 6673</a></div><a class="contact-action" href="https://wa.me/966504396673?text=Hi%20Layal%2C%20I%20came%20across%20your%20portfolio%20and%20would%20like%20to%20connect%20regarding%20an%20opportunity." target="_blank" rel="noopener noreferrer">Text me on WhatsApp ↗</a></div>
+  <div class="citem"><span class="k">LinkedIn</span><a class="v" href="https://www.linkedin.com/in/layal-canoe-a213792ab/" target="_blank" rel="noopener noreferrer">layal-canoe ↗</a></div>
+  <div class="citem"><span class="k">GitHub</span><a class="v" href="https://github.com/layalcanoe" target="_blank" rel="noopener noreferrer">layalcanoe ↗</a></div>
  </div>
 </section>
 
@@ -307,12 +331,34 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
 <script>
+// Small-screen section navigation; graph controls keep their existing behavior.
+(function(){
+ const nav=document.querySelector(".topnav"),toggle=nav.querySelector(".nav-toggle"),links=document.getElementById("sectionNav");
+ const smallScreen=matchMedia("(max-width:900px)");
+ toggle.hidden=false;
+ function close(returnFocus=false){
+  toggle.setAttribute("aria-expanded","false");
+  nav.classList.remove("menu-open");
+  if(returnFocus)toggle.focus();
+ }
+ toggle.addEventListener("click",()=>{
+  const open=toggle.getAttribute("aria-expanded")!=="true";
+  toggle.setAttribute("aria-expanded",String(open));
+  nav.classList.toggle("menu-open",open);
+ });
+ links.addEventListener("click",e=>{if(e.target.closest("a"))close(smallScreen.matches)});
+ nav.addEventListener("keydown",e=>{if(e.key==="Escape"&&toggle.getAttribute("aria-expanded")==="true"){close(true);e.preventDefault()}});
+ document.addEventListener("click",e=>{if(!nav.contains(e.target))close()});
+ nav.addEventListener("focusout",e=>{if(!nav.contains(e.relatedTarget))close()});
+ smallScreen.addEventListener("change",()=>close());
+})();
+
 const NODES=[
  {id:"heroz",label:"Heroz",type:"role",year:2026,sub:"AI Intern · Jun 2026 – present",blurb:"Designing and building a hybrid recommendation platform for children's activity discovery, from the MongoDB data model to the Neo4j knowledge graph.",deployed:true},
  {id:"brief",label:"Breifiction",type:"role",year:2025,sub:"Back-End Developer Intern · Summer 2025",blurb:"Built backend APIs for an AI-powered customer messaging assistant that automated quick responses to shipment-tracking and order-status questions using real client data.",deployed:true},
  {id:"rec",label:"Heroz Recommender",type:"project",year:2026,sub:"Knowledge graph · Recommender systems",blurb:"Multi-hop Cypher traversal finds candidate activities; a 6-factor weighted score ranks them and explains every recommendation.",deployed:true},
  {id:"traffic",label:"Traffic Edge AI",type:"project",year:2025,sub:"Multi-agent · NLP · Distributed systems · Research",blurb:"Semantic multi-agent traffic coordination across Jeddah intersections, running on a Kafka, HDFS and Spark pipeline. 171 → 13,791 records/sec on 1M sensor records (80.6×).",links:[["Code","https://github.com/layalcanoe/edge-native-agentic-nlp"],["Pipeline","https://github.com/layalcanoe/CS4074_TrafficBigData"],["Paper","https://www.researchgate.net/publication/399393117_Multi-Agent_Edge_AI_for_Intelligent_Traffic_Coordination"]]},
- {id:"hajj",label:"Hajj Buddy",type:"project",year:2025,sub:"RAG · Deployed web app",blurb:"A pilgrim's assistant that answers only from verified Islamic sources, so it can't make things up.",deployed:true,links:[["Code","https://github.com/layalcanoe/hajj-buddy-ai"],["Live","https://hajj-buddy-ai-cet1.onrender.com"]]},
+ {id:"hajj",label:"Hajj Buddy",type:"project",year:2025,sub:"RAG · Deployed web app",blurb:"A pilgrim's assistant that grounds responses in retrieved sources and is designed to decline when supporting context is insufficient.",deployed:true,links:[["Code","https://github.com/layalcanoe/hajj-buddy-ai"],["Live","https://hajj-buddy-ai-cet1.onrender.com"]]},
  {id:"agent",label:"AgentNation",type:"project",year:2026,sub:"Senior project · Multi-agent policy simulator",blurb:"Four-layer multi-agent architecture that simulates how a policy ripples across ministries and the workforce."},
  {id:"dorm",label:"dormOra",type:"project",year:2026,sub:"BMC 2026 Hackathon",blurb:"Analyzes skin images for acne, pigmentation, redness and texture, reasoning over a knowledge graph with RAG."},
  {id:"ieee",label:"IEEE · AI & PLC Security",type:"paper",year:2025,sub:"IEEE SCC 2025 · Sousse, Tunisia",blurb:"Peer-reviewed study of cybersecurity risks in AI-enabled powerline communication for smart grids and IoT. Funded by Effat University's Deanship of Graduate Studies and Research.",links:[["Paper","https://www.researchgate.net/publication/391596817_Integrating_AI_and_Cybersecurity_in_Powerline_Connection"]]},
